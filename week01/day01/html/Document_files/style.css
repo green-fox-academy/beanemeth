@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    height: 100vh;
+    max-width: 100vw;
+    font-family: 'Courier Prime', monospace;
+    background-image: url(./topography.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'consolas', courier;
+
+  }
+  
+  nav {
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color:#333333;
+
+    
+  }
+  
+  #home {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+  }
+  
+  h2 {
+    color:#ff0099;
+    
+}
+  .nav-link-container {
+    display: inline-block;
+    margin-left: 70%;
+    margin-bottom: 70%;
+
+  }
+  
+  .nav-link {
+    padding: 10px;
+    color:#ff0099;
+    
+    
+  }
+  
+  
+  main {
+    max-width: 80%;
+    margin: 5% auto;
+  }
+  
+  p {
+    padding: 0%;
+    max-width: 80%;
+    margin: 5% auto;
+  }
+  
+  

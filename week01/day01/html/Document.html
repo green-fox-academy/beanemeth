@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+
+
+
+    <title>Document</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/"><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><link href="./Document_files/css2" rel="stylesheet"><link rel="stylesheet" href="./Document_files/style.css"></head>
+
+<body>
+    <header>
+        <nav>
+            <img src="./Document_files/aperture.svg" alt="hello" id="home">
+            <div class="nav-link-container">
+                
+                <a href="http://127.0.0.1:5500/index.html#home" class="nav-link">Home</a>
+                <a href="https://github.com/" class="nav-link">Blog</a>
+                <a href="https://github.com/" class="nav-link">Github</a>
+                <a href="https://github.com/" class="nav-link">LinkedIn</a>
+            </div>
+           
+
+        </nav>
+
+    </header>
+<main>
+    <h1>Bea Nemeth</h1>
+    <h2>Future fullstack software developer</h2>
+
+    <h3>I am not quite sure what to write here. I love my family, 
+        I like skiing, eating cakes and I am excited to learn something new.</h3>
+</main>
+<hr class="dashed">
+<div>
+    
+
+    <h3> <center>Technology wiki</center></h3>
+    <p>A logic gate is an idealized model of computation or physical electronic device implementing a Boolean function, 
+        a logical operation performed on one or more binary inputs that produces a single binary output.</p>
+    <p>ASCII stands for American Standard Code for Information Interchange (pronounced "ask-key"). Computers can only understand numbers, 
+        so an ASCII code is the numerical representation of a character such as 'a' or '@' or an action of some sort. </p>
+        <p>Random-access memory (RAM; /ræm/) is a form of computer memory that can be read and changed in any order, 
+            typically used to store working data and machine code.</p>
+            <p>A programming language is a formal language that specifies a set of instructions that can be used to produce various kinds of output. 
+                Programming languages generally consist of instructions for a computer.</p>
+                <p>The Domain Name System (DNS) is a hierarchical and decentralized naming system for computers,
+                     services, or other resources connected to the Internet or a private network.</p>
+                     <p>The Hypertext Transfer Protocol (HTTP) is an application layer protocol in the Internet protocol suite model 
+                         for distributed, collaborative, hypermedia information systems.</p>
+</div>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body></html>

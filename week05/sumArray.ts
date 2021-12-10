@@ -2,4 +2,8 @@
 //   with the following content: `[54, 23, 66, 12]`
 // - Print the sum of the second and the third element
 
-let numbers = [54, 23, 66, 12];
+let numbers: number[]= [54, 23, 66, 12];
+
+ let result: number = numbers[1]+numbers[2] 
+ 
+console.log("The sum of the second and third element is: " + result);

@@ -18,7 +18,7 @@ let hashmap: {[key:number]: string} = {
 };
 /*
 notSoCrypticMessage.forEach(number => {
-//console.log(hasmap[number])
+//console.log(hashmap[1])
 out = out.concat(hashmap[number])
 
 })
@@ -27,8 +27,6 @@ out = out.concat(hashmap[number])
 for(let i=0; i<notSoCrypticMessage.length; i++){
     out = out + hashmap[notSoCrypticMessage[i]];
 }
-
-
 
 console.log(out)
 

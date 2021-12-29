@@ -3,12 +3,10 @@
 //    appends an 'a' character to its end and returns with a string
 // -  Print the result of `appendA(typo)`
 
-let typo: string ="Chinchill";
+let typo: string = "Chinchill";
 
-function appendA (value :string){
-
-   
-return value+"a";
+function appendA(value: string) {
+    return value + "a";
 }
 
 console.log(appendA(typo))

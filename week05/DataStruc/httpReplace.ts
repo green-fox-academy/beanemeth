@@ -12,5 +12,5 @@ let replaced22: string = url.replace("bots", replaceString2)
 
 let b = ":";
 
-let FinalRepairedURL = [replaced22.slice(0, 5), b, replaced22.slice(5)].join('');
-console.log(FinalRepairedURL);
+let finalRepairedURL = [replaced22.slice(0, 5), b, replaced22.slice(5)].join('');
+console.log(finalRepairedURL);

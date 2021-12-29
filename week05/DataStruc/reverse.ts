@@ -13,17 +13,17 @@ function reverseString(parameter :string){ }
 
 let toBeReversed: string = `.eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI`;
 
-function reverseString(parameterm: string){
+function reverseString(parameterm: string) {
     let newReversedString = "";
-    for(let i= parameterm.length -1; i>=0; i--){
+    for (let i = parameterm.length - 1; i >= 0; i--) {
         newReversedString += parameterm[i];
     }
-  return newReversedString;
-        
-    }
-    console.log(reverseString(toBeReversed))
-    
-  
+    return newReversedString;
+
+}
+console.log(reverseString(toBeReversed))
+
+
 /*
 let charArray: string[] = toBeReversed.split('');
 console.log(charArray);

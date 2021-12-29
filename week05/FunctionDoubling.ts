@@ -8,10 +8,7 @@ let baseNumber :number = 123;
 
 function doubleNumber(value :number) {
     return value * 2;
-
-
 }
-
 console.log(doubleNumber(baseNumber));
 
 

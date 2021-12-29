@@ -48,8 +48,8 @@ list.push("Amanda")
 console.log(list.length)
 console.log(list[2])
 for(let index=0; index< list.length; index ++) {
-    let numberlist : number = index +1;
-    console.log(numberlist + "." + list[index]);
+    let namesIndex : number = index +1;
+    console.log(namesIndex + "." + list[index]);
 }
 list.splice(1,1);
 console.log(list)

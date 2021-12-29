@@ -46,7 +46,10 @@ console.log(map[99])
 delete map[97];
 console.log(map)
 //Print whether there is an associated value with key 100 or not
-console.log(!!map[100]); //felkijaltojel nelkul azt irja ki h undefined a value, egy ! ezt tagadja ezert lesz true, meg egy ! pedig ezt is tagadja igy lesz false
+/*console.log(!!map[100]); */
+console.log(map.hasOwnProperty(100));
+//felkijaltojel nelkul azt irja ki h undefined a value, egy ! ezt tagadja ezert lesz true, meg egy ! pedig ezt is tagadja igy lesz false
+//Remove all the key-value pairs
 map = {}
 // Print how many key-value pairs are in the map
 console.log(Object.keys(map).length)

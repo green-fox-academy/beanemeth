@@ -24,7 +24,7 @@ if (startXx==0 && startYy ==0 ) {
     ctx.stroke();
   } else {
     
-    (startXx >=0 && startYy>=0);
+    (startYy>=0); //mivel van masik atlo is, ezert eleg ha az y-t nezzuk
     ctx.strokeStyle = 'red'
     ctx.stroke();
   } 

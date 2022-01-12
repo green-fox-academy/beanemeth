@@ -4,7 +4,7 @@
 // which converts encrypted data into its original form.
 // If the file can't be opened it should return this message: File not found
 // The result should be saved in the output.txt file
-/*
+
 const fs = require('fs');
 
 function decryptDoubled (filename: string): void {
@@ -23,9 +23,9 @@ try {
 } catch (error) {
     console.log("File not found")
 } 
-*/
 
-const fs5 = require('fs');
+/*
+const fs = require('fs');
 
 function decryptDoubled(doubledTextFile: string) :string {
     try {
@@ -34,11 +34,11 @@ function decryptDoubled(doubledTextFile: string) :string {
         for (let i = 0; i < fileContent.length; i += 2) {
             decryptedContent = decryptedContent + fileContent[i];
         }
-        fs5.writeFileSync("output.txt", decryptedContent);
+        fs.writeFileSync("output.txt", decryptedContent);
         return "File is decrypted";
     } catch (error) {
         return "File not found";
     }
 }
 
-console.log(decryptDoubled("duplicated-chars.txt"))
+console.log(decryptDoubled("duplicated-chars.txt")) */

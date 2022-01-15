@@ -6,9 +6,8 @@
 
 const fs = require('fs');
 
-
 try {
-    const fileContent: string = fs.readFileSync('myfile.txt', 'utf-8')
+    const fileContent: string = fs.readFileSync('myfile.txt', 'utf-8').split("\n")
     console.log(fileContent)
 
 } catch (err) {

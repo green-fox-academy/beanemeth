@@ -15,37 +15,32 @@ Download counter.test.ts and place it next to your solution
 Run npm install tape @types/tape --save-dev in the root of your repository folder (where you have a package-lock.json file already)
 Run the test file with ts-node */
 
-export class Counter { 
-    private counter: number =0;
-    private initialCounter: number 
+export class Counter {
+    private counter: number = 0;
+    private initialCounter: number
 
-    constructor(counter ?: number) {
+    constructor(counter?: number) {
         this.counter = counter ? counter : 1;
         this.initialCounter = this.counter;
-
-
     }
-
-//we can add another whole number to this counter: add(number)
-//we can just increase the counter's value by one: add() (no parameters)
-add(number?: number) {
-    if (number){
-        this.counter+= number ;
+    //we can add another whole number to this counter: add(number)
+    //we can just increase the counter's value by one: add() (no parameters)
+    add(number?: number) {
+        if (number) {
+            this.counter += number;
+        }
+        else {
+            this.counter++;
+        }
     }
-    else{
-        this.counter++ ;
+    //we can get() the current counter value
+    get() {
+        return this.counter;
     }
-    
-}
-//we can get() the current counter value
-get(){
-    return this.counter;
-}
-//and we can reset() the counter to the initial value set during the construction of the class
-reset(){
-this.counter = this.initialCounter;
-}
-
+    //and we can reset() the counter to the initial value set during the construction of the class
+    reset() {
+        return this.counter = this.initialCounter;
+    }
 }
 
 

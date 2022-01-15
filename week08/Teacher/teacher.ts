@@ -10,32 +10,34 @@ Call the student's question() method and the teacher's teach() method*/
 
 export class Teacher {
 
-
     constructor() {
 
     }
     //teach(student) -> calls the student's learn() method
-    teach(student:Student) { student.learn()}
+    teach(student: Student) { student.learn() }
     //giveAnswer() -> prints: the teacher is answering a question
     giveAnswer() { console.log('the teacher is answering a question') }
 }
 
 export class Student {
 
-
     constructor() {
 
     }
 
     //learn() -> prints: the student is actually learning
-    learn() { console.log('the student is actually learning') }
+    learn() {
+         console.log('the student is actually learning') 
+        }
     //question(teacher) -> calls the teacher's giveAnswer() method
-    question(teacher: Teacher) { teacher.giveAnswer()}
+    question(teacher: Teacher) { 
+        teacher.giveAnswer() 
+    }
 
 }
 
 //Call the student's question() method and the teacher's teach() method
 
-let Tomi = new Student();
-let MarikaNeni = new Teacher();
-Tomi.question(MarikaNeni)
+let tomi = new Student();
+let marikaNeni = new Teacher();
+tomi.question(marikaNeni)

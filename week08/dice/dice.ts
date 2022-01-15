@@ -36,7 +36,7 @@ function getSixSixes(diceSet:DiceSet):void {
             continue
         }
         else {  while (diceSet.getCurrent(index) !==6){ 
-            console.log(diceSet.getCurrent(index))
+            //console.log(diceSet.getCurrent(index))
             
             
         

@@ -13,9 +13,7 @@ const fs = require('fs');
 function writeIntoAFile(filename: string, word: string, numberOfLines: number) {
     try {
         let wordToBeWritten: string = word + "\n"
-
         fs.writeFileSync(filename, wordToBeWritten.repeat(numberOfLines))
-
         return filename
     }
     catch (error) {

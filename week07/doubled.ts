@@ -7,22 +7,17 @@
 
 const fs = require('fs');
 
-function decryptDoubled (filename: string): void {
-    let contentAsArray: string [] = fs.readFileSync(filename, 'utf-8').split("") //idaig vesszosen adja vissza egy arrayben
-    .filter((element: string,  i:number)=>!(i%2===0)) //azt tartja meg ami a kondicioban van, 2 parametert kap, element es i. azokan az indexen levo elemeket hagyja meg ami nem paros
+function decryptDoubled(filename: string): void {
+    let contentAsArray: string[] = fs.readFileSync(filename, 'utf-8').split("") //idaig vesszosen adja vissza egy arrayben
+        .filter((element: string, i: number) => !(i % 2 === 0)) //azt tartja meg ami a kondicioban van, 2 parametert kap, element es i. azokan az indexen levo elemeket hagyja meg ami nem paros
     let contentAsString: string = contentAsArray.join("");
     fs.writeFileSync('output.txt', contentAsString)
-
 }
-
 try {
     decryptDoubled('duplicated-chars.txt')
-    
-    
-
 } catch (error) {
     console.log("File not found")
-} 
+}
 
 /*
 const fs = require('fs');

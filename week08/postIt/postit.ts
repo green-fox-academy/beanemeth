@@ -17,7 +17,6 @@ export class PostIt {
         this.backgroundColor = backgroundColor;
         this.text = text;
         this.textColor = textColor;
-
     } 
 }
 

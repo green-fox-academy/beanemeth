@@ -13,18 +13,13 @@ export class Sharpie {
     private width: number;
     private inkamount: number;
 
-
     constructor(color: string, width: number, inkamount: number = 100) {
         this.color = color;
         this.width = width;
         this.inkamount = inkamount;
-
-
     }
+    
     use() {
         this.inkamount -= 10
     }
-
-
 }
-

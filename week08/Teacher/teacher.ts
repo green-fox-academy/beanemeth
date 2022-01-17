@@ -11,12 +11,15 @@ Call the student's question() method and the teacher's teach() method*/
 export class Teacher {
 
     constructor() {
-
     }
     //teach(student) -> calls the student's learn() method
-    teach(student: Student) { student.learn() }
+    teach(student: Student) { 
+        student.learn() 
+    }
     //giveAnswer() -> prints: the teacher is answering a question
-    giveAnswer() { console.log('the teacher is answering a question') }
+    giveAnswer() { 
+        console.log('the teacher is answering a question') 
+    }
 }
 
 export class Student {
@@ -33,7 +36,6 @@ export class Student {
     question(teacher: Teacher) { 
         teacher.giveAnswer() 
     }
-
 }
 
 //Call the student's question() method and the teacher's teach() method

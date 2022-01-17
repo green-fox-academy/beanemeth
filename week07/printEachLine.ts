@@ -9,10 +9,6 @@ const fs = require('fs');
 try {
     const fileContent: string = fs.readFileSync('myfile.txt', 'utf-8').split("\n")
     console.log(fileContent)
-
 } catch (err) {
     console.error("Unable to read file: my-file.txt")
 }
-
-
-

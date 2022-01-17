@@ -7,8 +7,8 @@ function returnLowercasexToY(textwithx: string): string {
     if (!textwithx.includes('x')) {
         return textwithx
     }
-    else {
+    
         return returnLowercasexToY(textwithx.replace('x', 'y'))
-    }
+    
 }
 console.log(returnLowercasexToY(randomString))

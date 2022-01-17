@@ -28,8 +28,7 @@ export class Counter {
     add(number?: number) {
         if (number) {
             this.counter += number;
-        }
-        else {
+        } else {
             this.counter++;
         }
     }

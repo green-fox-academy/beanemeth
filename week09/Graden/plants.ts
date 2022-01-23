@@ -1,8 +1,10 @@
+import { Garden } from './garden';
+
 export class Plants {
     public waterLevelOfthePlantCurrently: number;
     protected color: string;
     public absorption: number;
-    private thirst: number;
+    public thirst: number;
     public listofPlants: Plants[]
 
     constructor(color: string, absorption: number, thirst: number) {
@@ -10,6 +12,7 @@ export class Plants {
         this.waterLevelOfthePlantCurrently = 0;
         this.absorption = absorption;
         this.thirst = thirst;
+        this.listofPlants = [];
     }
     /*After that the program should water the garden twice, first with the amount of 40 then with 70. After every watering the user should 
     see the state of the garden as you can see in the output below*/

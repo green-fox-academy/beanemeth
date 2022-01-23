@@ -38,24 +38,30 @@ import { Plants } from './plants';
 import { Flower } from './flowers';
 import { Tree } from './trees';
 export class Garden {
-  private listOfPlants: Plants[];
+  public listOfPlantsinTheGarden: Plants[];
 
-  addPlant(plant: Plants): void {
-    this.listOfPlants.push(plant);
+  constructor (){
+    this.listOfPlantsinTheGarden = [];
   }
+
+  public addPlant(plant: Plants): void {
+    this.listOfPlantsinTheGarden.push(plant);
+  }
+  
 }
 // The program should demonstrate an example garden with two flowers (yellow and blue) and two trees (purple and orange). 
-let exampleGarden = [];
+let exampleGarden = new Garden();
 
-let yellowFlower = new Flower('yellow');
-exampleGarden.push(yellowFlower);
+let yellowFlower :Plants = new Flower('yellow');
+exampleGarden.addPlant(yellowFlower);
+let blueFlower : Plants = new Flower('blue');
+exampleGarden.addPlant(blueFlower);
 
-let blueFlower = new Flower('blue');
-exampleGarden.push(blueFlower);
+let purpleTree: Plants = new Tree('purple');
+exampleGarden.addPlant(purpleTree);
 
-let purpleTree = new Tree('purple');
-exampleGarden.push(purpleTree);
+let orangeTree: Plants = new Tree('orange');
+exampleGarden.addPlant(orangeTree);
 
-let orangeTree = new Tree('orange');
-exampleGarden.push(orangeTree);
 
+console.log(exampleGarden)

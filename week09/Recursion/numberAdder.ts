@@ -7,8 +7,9 @@ function sumNum(num: number): number {
       //base case
       return 0;
     } else {
-      return num + sumNum(num - 1);
+      return num + sumNum(num - 1); 
     }
   }
   
   console.log('The sum of 5 is', sumNum(5));
+

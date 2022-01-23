@@ -14,7 +14,10 @@ export class Animal {
         this.hunger = hunger;
         this.thirst = thirst;
     }
-    
+    getHunger(){
+        return this.hunger;
+    }
+
     eat() {
         this.hunger--
     }

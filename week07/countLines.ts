@@ -13,7 +13,7 @@ function countLines(filename: string): number {
         return 0;
     }
 }
-console.log(countLines('myfile.txt'))
+console.log(countLines('myfile.txt'));
 
 
 

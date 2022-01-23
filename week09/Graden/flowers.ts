@@ -5,4 +5,8 @@ eg. watering with 10 the flower's amount of water should only increase by 7.5 */
 import { Plants } from './plants';
 
 export class Flower extends Plants {
+
+    constructor(color: string) {
+        super(color, 75, 5);
+    }
 }

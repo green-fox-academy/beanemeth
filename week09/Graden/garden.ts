@@ -37,33 +37,25 @@ eg. watering with 10 the tree's amount of water should only increase by 4*/
 import { Plants } from './plants';
 import { Flower } from './flowers';
 import { Tree } from './trees';
-export class Garden{
-    private flowers: Flower[];
-    private trees: Tree[];
+export class Garden {
+  private listOfPlants: Plants[];
 
-    constructor() {
-        this.flowers = [];
-        this.trees = [];
-
-    }
-
-/*After that the program should water the garden twice, first with the amount of 40 then with 70. After every watering the user should see the state 
-of the garden as you can see in the output below*/
-public wateringPlants(){
+  addPlant(plant: Plants): void {
+    this.listOfPlants.push(plant);
+  }
 }
-   
-}   
 // The program should demonstrate an example garden with two flowers (yellow and blue) and two trees (purple and orange). 
 let exampleGarden = [];
 
-let yellowFlower = new Flower('yellow', 0);
+let yellowFlower = new Flower('yellow');
 exampleGarden.push(yellowFlower);
 
-let blueFlower = new Flower('blue', 0);
+let blueFlower = new Flower('blue');
 exampleGarden.push(blueFlower);
 
-let purpleTree = new Tree('purple', 0);
+let purpleTree = new Tree('purple');
 exampleGarden.push(purpleTree);
 
-let orangeTree = new Tree('orange', 0);
+let orangeTree = new Tree('orange');
 exampleGarden.push(orangeTree);
+

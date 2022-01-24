@@ -38,7 +38,7 @@ import { Plants } from './plants';
 import { Flower } from './flowers';
 import { Tree } from './trees';
 export class Garden {
-  public listOfPlantsinTheGarden: Plants[];
+  public listOfPlantsinTheGarden: Plants[] = [];
 
   constructor (){
     this.listOfPlantsinTheGarden = [];
@@ -46,22 +46,35 @@ export class Garden {
 
   public addPlant(plant: Plants): void {
     this.listOfPlantsinTheGarden.push(plant);
+  } /*
+  public wateringPlants(amountOfWater: number): void {
+    console.log('watering with' + amountOfWater)
+
+    let numberofThirstyPlants: number = 0;
+    for (let plant of this.listofPlants) {
+        if (plant.isThirsty()) {
+            numberofThirstyPlants++
+        }
+    }
+    this.waterLevelOfthePlantCurrently += (this.absorption / 100) * (amountOfWater / numberofThirstyPlants);
+}  */
+wateringPlants(amountOfWater: number): void {
+  console.log('watering with ' + amountOfWater)
+  let numberofThirstyPlants = 0;
+  for (let i = 0; i < this.listOfPlantsinTheGarden.length; i++) {
+      if (this.listOfPlantsinTheGarden[i].isThirsty()) {
+        numberofThirstyPlants ++;
+      }
   }
-  
+  for (let j = 0; j < this.listOfPlantsinTheGarden.length; j++) {
+    if (this.listOfPlantsinTheGarden[j].isThirsty()) {
+      this.listOfPlantsinTheGarden[j].receiveWater(amountOfWater / numberofThirstyPlants);
+    }
+  } 
 }
-// The program should demonstrate an example garden with two flowers (yellow and blue) and two trees (purple and orange). 
-let exampleGarden = new Garden();
-
-let yellowFlower :Plants = new Flower('yellow');
-exampleGarden.addPlant(yellowFlower);
-let blueFlower : Plants = new Flower('blue');
-exampleGarden.addPlant(blueFlower);
-
-let purpleTree: Plants = new Tree('purple');
-exampleGarden.addPlant(purpleTree);
-
-let orangeTree: Plants = new Tree('orange');
-exampleGarden.addPlant(orangeTree);
-
-
-console.log(exampleGarden)
+printGardenStatus(){
+  for (let i = 0; i < this.listOfPlantsinTheGarden.length; i++){
+  this.listOfPlantsinTheGarden[i].tellPlantsStatus();
+  }
+}
+}

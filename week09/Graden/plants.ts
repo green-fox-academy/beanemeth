@@ -1,11 +1,11 @@
 import { Garden } from './garden';
 
 export class Plants {
-    public waterLevelOfthePlantCurrently: number;
+    protected waterLevelOfthePlantCurrently: number;
     protected color: string;
-    public absorption: number;
-    public thirst: number;
-    public listofPlants: Plants[]
+    protected absorption: number;
+    protected thirst: number;
+    protected listofPlants: Plants[]
 
     constructor(color: string, absorption: number, thirst: number) {
         this.color = color;
@@ -16,7 +16,7 @@ export class Plants {
     }
     /*After that the program should water the garden twice, first with the amount of 40 then with 70. After every watering the user should 
     see the state of the garden as you can see in the output below*/
-    public isThirsty(): boolean {
+     isThirsty(): boolean {
         if (this.waterLevelOfthePlantCurrently < this.thirst) {
             return true
         }
@@ -25,12 +25,12 @@ export class Plants {
     //tenary op: ondition followed by a question mark (?), then an expression to execute 
     //if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy. 
     public tellPlantsStatus() {
-        console.log(this.color + this.constructor.name + this.isThirsty() ? "needs water" : "doesn't need water")
+        console.log('The '+this.color +' '+ this.constructor.name +' '+ (this.isThirsty() ? "needs water" : "doesn't need water"));
     }
     /* 
      public wateringPlants(amountOfWater: number):void{
       this.waterLevelOfthePlantCurrently += (this.absorption / 100) * amountOfWater;
-     } */
+     } */ /*
     public wateringPlants(amountOfWater: number): void {
         console.log('watering with' + amountOfWater)
 
@@ -41,6 +41,15 @@ export class Plants {
             }
         }
         this.waterLevelOfthePlantCurrently += (this.absorption / 100) * (amountOfWater / numberofThirstyPlants);
+    } */
+    receiveWater(amount: number){
+        this.waterLevelOfthePlantCurrently += this.absorption/100 *amount;
+    }
+    getWaterLevelOfthePlantCurrently(){
+        return this.waterLevelOfthePlantCurrently
+    }
+    getAbsorption(){
+        return this.absorption
     }
 }
 

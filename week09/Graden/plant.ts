@@ -25,7 +25,7 @@ export class Plants {
     //tenary op: ondition followed by a question mark (?), then an expression to execute 
     //if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy. 
     public tellPlantsStatus() {
-        console.log('The '+this.color +' '+ this.constructor.name +' '+ (this.isThirsty() ? "needs water" : "doesn't need water"));
+        console.log('The '+ this.color +' '+ this.constructor.name +' '+ (this.isThirsty() ? "needs water" : "doesn't need water"));
     }
     /* 
      public wateringPlants(amountOfWater: number):void{

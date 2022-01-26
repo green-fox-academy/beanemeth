@@ -1,6 +1,6 @@
-import { Plants } from './plants';
+import { Plants } from './plant';
 import { Flower } from './flowers';
-import { Tree } from './trees';
+import { Tree } from './tree';
 import { Garden } from './garden';
 
 // The program should demonstrate an example garden with two flowers (yellow and blue) and two trees (purple and orange). 

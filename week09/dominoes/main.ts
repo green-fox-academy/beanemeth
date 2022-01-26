@@ -39,8 +39,8 @@ print(dominolist);
 //print them as snake, method 1:
 let dominoesAsSnake: number[][] = [];
 
-for (let i = 0; i < dominolist.length; i++) {
-    let list: number[] = dominolist[i].getValues()
+for (let index = 0; index < dominolist.length; index++) {
+    let list: number[] = dominolist[index].getValues()
     dominoesAsSnake.push(list)
 }
 console.log(dominoesAsSnake);

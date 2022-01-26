@@ -19,12 +19,20 @@ import { Pirate } from './pirates';
 export class Ship {
     private captain: Pirate;
     private alivePirate: number;
-    private pirateList: Pirate[];
+    private pirateInstances: Pirate[];
 
-    constructor(pirateList?: Pirate[], captain?: Pirate) {
+    constructor(pirateInstances?: Pirate[], captain?: Pirate) {
         this.captain = null;
         this.alivePirate = 0;
-        this.pirateList = [];
-        
+        this.pirateInstances = [];
+
+    }
+
+    fillship() {
+        let randomNumberCrew = Pirate.getRandomInt(0, 113)
+        for (let index = 0; index < randomNumberCrew; index++) {
+            this.pirateInstances.push(new Pirate())
+        }
+        this.captain = new Pirate();
     }
 }

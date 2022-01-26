@@ -6,7 +6,7 @@ it has a method that returns the number of usable Sharpies: countUsable() -> sha
 it has a method that removes all unusable Sharpies: removeTrash() */
 
 'use strict';
-import { Sharpie } from "../sharpie/sharpie";
+import { Sharpie } from "../../week08/sharpie/sharpie";
 
 export class SharpieSet {
     private listOfSharpies: Sharpie[];

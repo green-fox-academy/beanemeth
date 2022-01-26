@@ -7,4 +7,4 @@ let greenSharpie = new Sharpie("green", 6);
 
 console.log(pinkSharpie);
 pinkSharpie.use();
-console.log(pinkSharpie)
+console.log(pinkSharpie) 

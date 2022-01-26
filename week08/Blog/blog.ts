@@ -8,7 +8,7 @@ delete(int) -> deletes the BlogPost from the given index
 update(int, BlogPost) -> replaces an item at the given index with a new BlogPost*/
 
 'use strict';
-import { BlogPost } from "../blogPost/blogPost";
+import { BlogPost } from "../../week09/blogPost/blogPost";
 
 export class Blog {
     private listOfBlogs: BlogPost[]= [];

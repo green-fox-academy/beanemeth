@@ -28,5 +28,5 @@ function findMatchingIndexes(params: number, params2: number[]) {
 }
 console.log(findMatchingIndexes(4, listOfNumbers2))
 
-//elemeket atalakitani stringbe az egeszet, utaa vegigmegy es a stringet nezi, h van e olyan resze ami egyezik. substring. utana a megtalalt indexet mentse el a matchingbe
+//
 

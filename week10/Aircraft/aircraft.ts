@@ -58,40 +58,73 @@ Type F16, Ammo: 8, Base Damage: 30, All Damage: 240
 If the health points are 0 then it should return: It's dead Jim :( */
 
 'use strict';
+
 //Both aircrafts should keep track of their ammunition
 
 export class Aircraft {
-
+    
     protected ammunition: number;
     protected maxAmmo: number;
     protected baseDamage: number;
+    protected type: string;
     //All aircrafts should be created with an empty ammo storage
-    constructor(ammunition: number = 0, maxAmmo: number, baseDamage: number) {
-        this.ammunition = ammunition;
-        this.maxAmmo = maxAmmo
+    constructor(maxAmmo: number, baseDamage: number, type: string) {
+        this.ammunition = 0;
+        this.maxAmmo = maxAmmo;
         this.baseDamage = baseDamage;
-
+        this.type = type;
     }
     //fight()It should use all the ammo (set it to 0) and it should return the damage it causes
     //damage is calculated by multiplying the base damage by the ammunition
     damage(): number {
         return this.baseDamage * this.ammunition;
     }
-
     fight(): number {
-        
+
         let damage = this.damage(); //muszaj elmenteni, mert utana lenullazza, de mivel returnelni kell ezert emlekeznie kell ra
         this.ammunition = 0;
         return damage;
     }
-}
-/* refillAmmo()
-It should take a number as parameter that represents the ammunition coming from a station
-Increase the ammo of the aircraft by the right amount
-It can't have more ammo than the parameter value or the max ammo of the aircraft
-It should return the remaining (unused) ammo
-Eg. Filling an empty F35 with 300 would completely fill the storage of the aircraft and would return the remaining 288 */
-/*refillAmmo(){
+    /* refillAmmo()It should take a number as parameter that represents the ammunition coming from a station
+    Increase the ammo of the aircraft by the right amount
+    It can't have more ammo than the parameter value or the max ammo of the aircraft
+    It should return the remaining (unused) ammo
+    Eg. Filling an empty F35 with 300 would completely fill the storage of the aircraft and would return the remaining 288 */
+    refillAmmo(ammunitionFromStation: number) {
+        let remainingAmmo: number = 0;
+        if (ammunitionFromStation > this.maxAmmo) {
+            this.ammunition = this.maxAmmo;
+            remainingAmmo = ammunitionFromStation - this.maxAmmo - this.ammunition;
+        } else {
+            this.ammunition += ammunitionFromStation;
+        }
+        return remainingAmmo;
+    }
 
-}   
-} */
+    //getType() It should return the type of the aircraft as a string
+    getType() {
+        return this.type;
+    }
+    //getStatus() It should return a string like: Type F35, Ammo: 10, Base Damage: 50, All Damage: 500
+    getStatus(): string {
+        return "Type " + this.getType() + ", Ammo: " + this.ammunition + ", Base Damage: " + this.baseDamage + ", All Damage: " + this.damage();
+    }
+    // isPriority()It should return if the aircraft is priority in the ammo fill queue. It's true for F35 and false for F16
+
+    isPriority(): boolean {
+        if (this.type === 'F35') {
+            return true
+        }
+        return false
+    }
+    getMaxAmmo() {
+        return this.maxAmmo;
+    }
+    getCurrentAmmo(){
+        return this.ammunition;
+    }
+    getBaseDamage(){
+        return this.baseDamage;
+    }
+}
+

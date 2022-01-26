@@ -1,7 +1,7 @@
 
 'use strict';
 import { BlogPost } from "./blogPost";
-import { Blog } from "../Blog/blog";
+import { Blog } from "../../week08/Blog/blog";
 
 let loremIpsum = new BlogPost("John Doe", "Lorem Ipsum", "Lorem ipsum dolor sit amet.", new Date("2000-05-04"));
 

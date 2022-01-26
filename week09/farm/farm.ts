@@ -8,7 +8,7 @@ breed() -> creates a new animal if there's place for it
 sell() -> removes the least hungry animal */
 
 'use strict';
-import { Animal } from "../animal/animal";
+import { Animal } from "../../week08/animal/animal";
 
 
 export class Farm {

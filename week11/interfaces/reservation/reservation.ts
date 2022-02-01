@@ -30,7 +30,7 @@ export class Reservation implements Reservationy {
 
     constructor (){
         this.dow = ['MON', 'THU', 'WED', 'THUS', 'FRI', 'SAT', 'SUN'];
-        this.code = this.getCodeBooking();
+        this.code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     }
     getDowBooking(): string{
         let randomDay= this.dow[Math.floor(Math.random()*this.dow.length)];//this.dow[Math.floor(Math.random()*7)]; 
@@ -38,13 +38,13 @@ export class Reservation implements Reservationy {
     }
     getCodeBooking(): string{
         let randomcode = "";
-        let possiblecode = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       
-        for (var i = 0; i < 8; i++)
-        randomcode += possiblecode.charAt(Math.floor(Math.random() * possiblecode.length));
+        for (var i = 0; i < 8; i++){
+        randomcode += this.code.charAt(Math.floor(Math.random() * this.code.length))};
       
         return randomcode;
-      } //Booking# 1WBA3OMU for THU
+      } 
+      
       printStatus():void{
         console.log('Booking# '+ this.getCodeBooking() + ' for ' + this.getDowBooking());
     }

@@ -16,16 +16,33 @@ Most of the Reptiles breed() by laying eggs too, it is common with Birds.
 Create the project and the classes above. */
 
 abstract class Animal {
-    protected name: string;
-    protected age: number;
+    private name: string;
+    private age: number;
+    private color: string;
 
-    constructor(name: string, age: number) {
+    constructor(name: string) {
         this.name = name;
-        this.age = age;
+        this.age = 0;
+        this.color = '';    
     }
-    getName(){
+
+    getName(): string{
         return this.name;
-    } 
-    breed():void{}
-    
+    }
+
+    abstract breed():string;
+
+    abstract eat(): void;
+   //itt be lehet allitani settereket is. pl setColor(color: string){this.color=color}, ez akkor ha mindenkinel kell, ha nem akkor az adott allaton kell beallitani
+    sound():void{
+
+    }
+
 }
+
+
+
+/*A Crocodile is breeding by laying eggs.
+A Koala is breeding by pushing miniature versions out.
+A Parrot is breeding by laying eggs. */
+export { Animal };

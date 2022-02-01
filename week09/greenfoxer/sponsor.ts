@@ -20,24 +20,26 @@ export class Sponsor extends Person {
     private company: string;
     private hiredStudents: number;
 
-    constructor(name: string= 'Jane Done', age:number = 30, gender:string = "female",
-        company: string= 'Google') {
+    constructor(name: string = 'Jane Done', age: number = 30, gender: string = "female",
+        company: string = 'Google') {
         super(name, age, gender);
         this.company = company;
         this.hiredStudents = 0;
     }
-//hire(): increases hiredStudents by 1
-    public hire(){
+    //hire(): increases hiredStudents by 1
+    public hire() {
         this.hiredStudents++
     }
-    public getGoal(): void {
-        console.log('My goal is: Hire brilliant junior software developers.'); //itt mivel nem mondja azt amit a person, ezert sajat kell
-        console.log(os.EOL);
+
+    public getGoal(): string {
+        return 'My goal is: Hire brilliant junior software developers.' + os.EOL; //itt mivel nem mondja azt amit a person, ezert sajat kell
+        
     }
+
     public introduce(): void {
         console.log(super.getIntroduction() + "who represents " + this.company + " and hired " + this.hiredStudents + " students so far.");
         console.log(os.EOL);
-}
+    }
 }
 
 //belso es gyerek a protected

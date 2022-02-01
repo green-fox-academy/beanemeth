@@ -35,46 +35,37 @@ needs water if its current water amount is less than 10
 when watered the tree can only absorb the 40% of the water
 eg. watering with 10 the tree's amount of water should only increase by 4*/
 import { Plants } from './plant';
-import { Flower } from './flowers';
+import { Flower } from './flower';
 import { Tree } from './tree';
 export class Garden {
-  public listOfPlantsinTheGarden: Plants[] = [];
+  private listOfPlantsinTheGarden: Plants[] = [];
 
-  constructor (){
+  constructor() {
     this.listOfPlantsinTheGarden = [];
   }
 
   public addPlant(plant: Plants): void {
     this.listOfPlantsinTheGarden.push(plant);
-  } /*
-  public wateringPlants(amountOfWater: number): void {
-    console.log('watering with' + amountOfWater)
-
-    let numberofThirstyPlants: number = 0;
-    for (let plant of this.listofPlants) {
-        if (plant.isThirsty()) {
-            numberofThirstyPlants++
-        }
-    }
-    this.waterLevelOfthePlantCurrently += (this.absorption / 100) * (amountOfWater / numberofThirstyPlants);
-}  */
-wateringPlants(amountOfWater: number): void {
-  console.log('watering with ' + amountOfWater)
-  let numberofThirstyPlants = 0;
-  for (let i = 0; i < this.listOfPlantsinTheGarden.length; i++) {
-      if (this.listOfPlantsinTheGarden[i].isThirsty()) {
-        numberofThirstyPlants ++;
-      }
-  }
-  for (let j = 0; j < this.listOfPlantsinTheGarden.length; j++) {
-    if (this.listOfPlantsinTheGarden[j].isThirsty()) {
-      this.listOfPlantsinTheGarden[j].receiveWater(amountOfWater / numberofThirstyPlants);
-    }
   } 
-}
-printGardenStatus(){
-  for (let i = 0; i < this.listOfPlantsinTheGarden.length; i++){
-  this.listOfPlantsinTheGarden[i].tellPlantsStatus();
+
+  wateringPlants(amountOfWater: number): void {
+    console.log('watering with ' + amountOfWater)
+    let numberofThirstyPlants = 0;
+    for (let i = 0; i < this.listOfPlantsinTheGarden.length; i++) {
+      if (this.listOfPlantsinTheGarden[i].isThirsty()) {
+        numberofThirstyPlants++;
+      }
+    }
+    for (let j = 0; j < this.listOfPlantsinTheGarden.length; j++) {
+      if (this.listOfPlantsinTheGarden[j].isThirsty()) {
+        this.listOfPlantsinTheGarden[j].receiveWater(amountOfWater / numberofThirstyPlants);
+      }
+    }
   }
-}
+
+  printGardenStatus() {
+    for (let i = 0; i < this.listOfPlantsinTheGarden.length; i++) {
+      this.listOfPlantsinTheGarden[i].tellPlantsStatus();
+    }
+  }
 }

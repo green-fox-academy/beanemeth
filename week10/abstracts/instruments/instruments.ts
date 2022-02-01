@@ -20,6 +20,8 @@ abstract class Instrument {
     constructor(name: string) {
         this.name = name;
     }
+    abstract play():string;
+
     
 }
 //Next, we add another abstract class, StringedInstrument which extends Instrument.

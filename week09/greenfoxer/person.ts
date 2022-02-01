@@ -27,8 +27,8 @@ export class Person {
   public introduce(): void {
     console.log(this.getIntroduction() + ".");
   }
-  public getGoal() {
-    console.log('My goal is: Live for the moment!');
+  public getGoal():string {
+    return 'My goal is: Live for the moment!';
   }
   protected getIntroduction(): string { //akkor latja a gyerek ha protected
     return "Hi, I'm " + this.name + " a " + this.age + " year old " + this.gender + " "

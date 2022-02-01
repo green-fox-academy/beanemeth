@@ -22,10 +22,12 @@ export class Mentor extends Person {
         super(name, age, gender);
         this.level = level;
     }
-    public getGoal(): void {
-        console.log('My goal is: Educate brilliant junior software developers.'); //itt mivel nem mondja azt amit a person, ezert sajat kell
-        console.log(os.EOL);
+
+    public getGoal(): string{
+        return 'My goal is: Educate brilliant junior software developers.'+os.EOL; //itt mivel nem mondja azt amit a person, ezert sajat kell
+        
     }
+    
     public introduce(): void {
         console.log(super.getIntroduction() + this.level + "mentor.");
         console.log(os.EOL);

@@ -1,11 +1,11 @@
 import { Garden } from './garden';
 
 export class Plants {
-    protected waterLevelOfthePlantCurrently: number;
-    protected color: string;
-    protected absorption: number;
-    protected thirst: number;
-    protected listofPlants: Plants[]
+    private waterLevelOfthePlantCurrently: number;
+    private color: string;
+    private absorption: number;
+    private thirst: number;
+    private listofPlants: Plants[]
 
     constructor(color: string, absorption: number, thirst: number) {
         this.color = color;
@@ -22,11 +22,13 @@ export class Plants {
         }
         return false
     }
+
     //tenary op: ondition followed by a question mark (?), then an expression to execute 
     //if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy. 
-    public tellPlantsStatus() {
-        console.log('The '+ this.color +' '+ this.constructor.name +' '+ (this.isThirsty() ? "needs water" : "doesn't need water"));
+    public tellPlantsStatus(): string {
+        return 'The '+ this.color +' '+ this.constructor.name +' '+ (this.isThirsty() ? "needs water" : "doesn't need water");
     }
+
     /* 
      public wateringPlants(amountOfWater: number):void{
       this.waterLevelOfthePlantCurrently += (this.absorption / 100) * amountOfWater;
@@ -42,12 +44,15 @@ export class Plants {
         }
         this.waterLevelOfthePlantCurrently += (this.absorption / 100) * (amountOfWater / numberofThirstyPlants);
     } */
-    receiveWater(amount: number){
-        this.waterLevelOfthePlantCurrently += this.absorption/100 *amount;
+
+    receiveWater(amount: number) :number{
+        return this.waterLevelOfthePlantCurrently += this.absorption/100 *amount;
     }
+
     getWaterLevelOfthePlantCurrently(){
         return this.waterLevelOfthePlantCurrently
     }
+
     getAbsorption(){
         return this.absorption
     }

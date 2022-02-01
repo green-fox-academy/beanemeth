@@ -9,8 +9,7 @@ let newreservation = new Reservation();
 //console.log(newreservation.printStatus());
 
 for (let index = 0; index < 10; index++) {
-    console.log(newreservation.printStatus());
+    newreservation.printStatus();
     
 }
 
-// it works, but it prints undefined after every reservation .

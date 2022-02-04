@@ -29,7 +29,7 @@ export class Reservation implements Reservationy {
     private code: string;
 
     constructor (){
-        this.dow = ['MON', 'THU', 'WED', 'THUS', 'FRI', 'SAT', 'SUN'];
+        this.dow = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
         this.code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     }
 

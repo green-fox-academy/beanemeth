@@ -15,4 +15,4 @@ export function getFrequency(string: string): { [key: string]: number } {
 
     return freq;
 };
-console.log(getFrequency('peterrabbit'))
+// console.log(getFrequency('peterrabbit'))

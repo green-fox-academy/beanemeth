@@ -19,3 +19,10 @@ export function areAnagram(stringOne: string, stringTwo: string): boolean {
     } return true;
 }
 
+// let kuli = 'kuli'
+// let luki = 'luki'
+// kuli.split('').sort().join('');
+// luki.split('').sort().join('');
+// console.log(kuli.split('').sort().join(''));
+// console.log(luki.split('').sort().join(''));
+// console.log(areAnagram("kuli", 'kuli'))

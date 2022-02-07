@@ -12,12 +12,9 @@ Run the test
 Fix the returned value to make the test succeeding again */
 
 export class Apple {
-    private listOfPlantsinTheGarden: Plants[] = [];
-  
-    constructor() {
-      
+
+    getApple(): string {
+        return 'apple';
     }
-  
-    public getApple(): string {
-      return 'apple';
-    } }
+}
+

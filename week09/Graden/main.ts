@@ -1,5 +1,5 @@
 import { Plants } from './plant';
-import { Flower } from './flowers';
+import { Flower } from './flower';
 import { Tree } from './tree';
 import { Garden } from './garden';
 

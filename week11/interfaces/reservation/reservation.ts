@@ -41,7 +41,7 @@ export class Reservation implements Reservationy {
     getCodeBooking(): string{
         let randomcode = "";
       
-        for (var i = 0; i < 8; i++){
+        for (let i = 0; i < 8; i++){
         randomcode += this.code.charAt(Math.floor(Math.random() * this.code.length))};
       
         return randomcode;

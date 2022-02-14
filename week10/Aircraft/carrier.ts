@@ -57,21 +57,39 @@ export class Carrier {
 
     //fight()It should take another carrier as a reference parameter and fire all the ammo from the aircrafts to it
     //subtract all the damage from the other carrier's health points
-    fight(anotherCarrier: Carrier) {
-        //fire all the ammo from the aircrafts to it
-        this.aircraftList.forEach(aircraft =>{                  //NOT READY. TO BE CONTINUED!!!!!
-           anotherCarrier.healthPoint -=  aircraft.damage(),   
-       
-    }); }
+    fight(anotherCarrier: Carrier):void {
+        let damage: number = 0;
+        this.aircraftList.forEach(aircraft =>{                  
+            damage += aircraft.fight();
+        });
+        anotherCarrier.healthPoint -= damage;
+    }
+
+    // fight (carrier: Carrier): void {
+    //     for (let i = 0; i < this.aircraftList.length; i++) {
+    //         carrier.healthPoint -= this.aircraftList[i].fight();
+    //     }
+    // }
+    
+    getTotalDamage (): number {
+        let totalDamage: number = 0;
+        for (let i = 0; i < this.aircraftList.length; i++) {
+            totalDamage += this.aircraftList[i].damage();
+        }
+        return totalDamage;
+    }
+//     HP: 5000, Aircraft count: 5, Ammo Storage: 2300, Total damage: 2280
+// Aircrafts:
+// Type F35, Ammo: 12, Base Damage: 50, All Damage: 600
     // getStatus() It should return a string describing its, and all of its aircrafts' statuses in the following format:
-    getStatus(): string {
+    getStatus(): void {
 		if (this.healthPoint <= 0) {
-			console.log("It's dead Jim :(")      //NOT READY. TO BE CONTINUED!!!!
+			console.log("It's dead Jim :(")      
 		}else{
-			console.log('HP ' + this.healthPoint +'Aircraft count: '+ this.aircraftList.length + 'Ammo Storage: ' +this.stroredAmmo + 'Total damage: ' +' something');
+			console.log('HP ' + this.healthPoint +'Aircraft count: '+ this.aircraftList.length + 'Ammo Storage: ' +this.stroredAmmo + 'Total damage: ' + this.getTotalDamage());
 			console.log(`Aircrafts: `)
 			for (let i = 0; i < this.aircraftList.length; i++) {
-				console.log('Type '+ this.aircraftList[i].getType() +  'Ammo: '+this.aircraftList[i].getCurrentAmmo() + 'Base Damage: '+ this.aircraftList[i].getBaseDamage() + 'All Damage: ' + this.aircraftList[i]. )
+				console.log('Type '+ this.aircraftList[i].getType() +  'Ammo: '+this.aircraftList[i].getCurrentAmmo() + 'Base Damage: '+ this.aircraftList[i].getBaseDamage() + 'All Damage: ' + this.aircraftList[i].damage())
 			}
 			return
 		}

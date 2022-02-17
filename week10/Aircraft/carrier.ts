@@ -70,6 +70,13 @@ export class Carrier {
     //         carrier.healthPoint -= this.aircraftList[i].fight();
     //     }
     // }
+    // fight(otherCarrier: Carrier) {
+    //     let damage: number = 0;
+    //     for (let i = 0; i < this.aircraftList.length; i++) {
+    //         damage += this.aircraftList[i].fight();
+    //     }
+    //     otherCarrier.healthPoint -= damage;
+    // }
     
     getTotalDamage (): number {
         let totalDamage: number = 0;

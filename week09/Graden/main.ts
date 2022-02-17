@@ -18,7 +18,7 @@ exampleGarden.addPlant(purpleTree);
 
 let orangeTree = new Tree('orange');
 exampleGarden.addPlant(orangeTree);
-
+console.log(exampleGarden)
 console.log(exampleGarden.printGardenStatus());
 console.log(exampleGarden.wateringPlants(40));
 console.log(exampleGarden.printGardenStatus());
@@ -29,3 +29,4 @@ orangeTree.tellPlantsStatus();
 console.log(exampleGarden.wateringPlants(70));
 console.log(exampleGarden.wateringPlants(70));
 orangeTree.tellPlantsStatus();*/
+console.log(blueFlower.tellPlantsStatus())

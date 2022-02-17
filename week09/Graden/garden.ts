@@ -37,6 +37,7 @@ eg. watering with 10 the tree's amount of water should only increase by 4*/
 import { Plants } from './plant';
 import { Flower } from './flower';
 import { Tree } from './tree';
+import os from 'os';
 export class Garden {
   private listOfPlantsinTheGarden: Plants[] = [];
 
@@ -63,9 +64,12 @@ export class Garden {
     }
   }
 
-  printGardenStatus() {
+  printGardenStatus():string {
+    let plantStatus:string = "";
     for (let i = 0; i < this.listOfPlantsinTheGarden.length; i++) {
-      this.listOfPlantsinTheGarden[i].tellPlantsStatus();
-    }
+      plantStatus += this.listOfPlantsinTheGarden[i].tellPlantsStatus()+ os.EOL;
+
+    } return plantStatus
   }
+
 }

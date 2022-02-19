@@ -73,6 +73,14 @@ numberToSwap2 = numberToSwap3Temp
 console.log(numberToSwap1)
 console.log(numberToSwap2)
 
+let numberToSwap11: number = 123;
+let numberToSwap22: number = 526;
+
+[numberToSwap11, numberToSwap22] = [numberToSwap22, numberToSwap11]
+
+
+console.log(numberToSwap11);
+console.log(numberToSwap22);
 /* let massInKg: number = 81.2;
 let heightInM: number = 1.78;
 BMI = kg/m2 

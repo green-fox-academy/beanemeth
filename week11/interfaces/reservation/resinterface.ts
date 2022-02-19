@@ -1,5 +1,5 @@
 export interface Reservationy {
-    getDowBooking(): string;
-    getCodeBooking(): string;
-    
-  }
+  getDowBooking(): string;
+  getCodeBooking(): string;
+
+}

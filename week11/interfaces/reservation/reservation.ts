@@ -25,32 +25,33 @@ import { Reservationy } from './resinterface'
 
 export class Reservation implements Reservationy {
 
-    private dow: string[]=[];
-    private code: string;
+  private dow: string[] = [];
+  private code: string;
 
-    constructor (){
-        this.dow = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
-        this.code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    }
+  constructor() {
+    this.dow = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+    this.code = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  }
 
-    getDowBooking(): string{
-        let randomDay= this.dow[Math.floor(Math.random()*this.dow.length)];//this.dow[Math.floor(Math.random()*7)]; 
-        return randomDay
-    }
+  getDowBooking(): string {
+    let randomDay = this.dow[Math.floor(Math.random() * this.dow.length)];//this.dow[Math.floor(Math.random()*7)]; 
+    return randomDay
+  }
 
-    getCodeBooking(): string{
-        let randomcode = "";
-      
-        for (let i = 0; i < 8; i++){
-        randomcode += this.code.charAt(Math.floor(Math.random() * this.code.length))};
-      
-        return randomcode;
-      } 
+  getCodeBooking(): string {
+    let randomcode = "";
 
-      printStatus():void{
-        console.log('Booking# '+ this.getCodeBooking() + ' for ' + this.getDowBooking());
-    }
-    }
+    for (let i = 0; i < 8; i++) {
+      randomcode += this.code.charAt(Math.floor(Math.random() * this.code.length))
+    };
+
+    return randomcode;
+  }
+
+  printStatus(): void {
+    console.log('Booking# ' + this.getCodeBooking() + ' for ' + this.getDowBooking());
+  }
+}
 
 
 

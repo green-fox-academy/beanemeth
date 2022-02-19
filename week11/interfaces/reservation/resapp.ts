@@ -10,6 +10,6 @@ let newreservation = new Reservation();
 
 for (let index = 0; index < 10; index++) {
     newreservation.printStatus();
-    
+
 }
 

@@ -1,7 +1,7 @@
 import { Garden } from './garden';
 
 export class Plants {
-    private waterLevelOfthePlantCurrently: number;
+    private waterLevelOfthePlantCurrently: number=0;
     private color: string;
     private absorption: number;
     private thirst: number;
@@ -9,7 +9,6 @@ export class Plants {
 
     constructor(color: string, absorption: number, thirst: number) {
         this.color = color;
-        this.waterLevelOfthePlantCurrently = 0;
         this.absorption = absorption;
         this.thirst = thirst;
         this.listofPlants = [];

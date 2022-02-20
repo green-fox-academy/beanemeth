@@ -8,7 +8,8 @@
 const fs = require('fs');
 
 function decryptDoubled(filename: string): void {
-    let contentAsArray: string[] = fs.readFileSync(filename, 'utf-8').split("") //idaig vesszosen adja vissza egy arrayben
+    let contentAsArray: string[] = fs.readFileSync(filename, 'utf-8').split("") //console.log(contentAsArray);
+     //idaig vesszosen adja vissza egy arrayben betunkent(!)
         .filter((element: string, i: number) => !(i % 2 === 0)) //azt tartja meg ami a kondicioban van, 2 parametert kap, element es i. azokan az indexen levo elemeket hagyja meg ami nem paros
     let contentAsString: string = contentAsArray.join("");
     fs.writeFileSync('output.txt', contentAsString)
@@ -19,21 +20,21 @@ try {
     console.log("File not found")
 }
 
-/*
-const fs = require('fs');
 
-function decryptDoubled(doubledTextFile: string) :string {
-    try {
-        let fileContent: string = fs5.readFileSync(doubledTextFile, 'utf-8');
-        let decryptedContent: string = "";
-        for (let i = 0; i < fileContent.length; i += 2) {
-            decryptedContent = decryptedContent + fileContent[i];
-        }
-        fs.writeFileSync("output.txt", decryptedContent);
-        return "File is decrypted";
-    } catch (error) {
-        return "File not found";
-    }
-}
+// const fs = require('fs');
 
-console.log(decryptDoubled("duplicated-chars.txt")) */
+// function decryptDoubled(doubledTextFile: string) :string {
+//     try {
+//         let fileContent: string = fs.readFileSync(doubledTextFile, 'utf-8');
+//         let decryptedContent: string = "";
+//         for (let i = 0; i < fileContent.length; i += 2) {
+//             decryptedContent = decryptedContent + fileContent[i];
+//         }
+//         fs.writeFileSync("output.txt", decryptedContent);
+//         return "File is decrypted";
+//     } catch (error) {
+//         return "File not found";
+//     }
+// }
+
+// console.log(decryptDoubled("duplicated-chars.txt")) 

@@ -20,4 +20,8 @@ function writeIntoAFile(filename: string, word: string, numberOfLines: number) {
     }
 }
 
-writeIntoAFile("myfile.txt", "apple", 5)
+writeIntoAFile("myfile.txt", "apple", 5)    //this is actually the task:
+
+// function writeMultipleLines(path: string, word: string, lineNumber: number) {
+//     try {
+//         fs.writeFileSync(path, word.concat("\r\n").repeat(lineNumber)

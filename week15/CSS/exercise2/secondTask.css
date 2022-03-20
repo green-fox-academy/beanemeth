@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+  
+  .yellow {
+    background-color: #FFD62A;
+    flex-basis: 50%;
+    height: 50%;
+  }
+  
+  .purple {
+    background-color: #B02AFF;
+    position: absolute;
+    align-self: center;
+    height: 100px;
+    width: 100px;
+  }

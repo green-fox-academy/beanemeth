@@ -1,0 +1,26 @@
+ .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .item {
+    width: 200px;
+    height: 200px;
+    align-self:flex-end;
+  }
+  
+  .green {
+    background-color: #51D400;
+  }
+  
+  .yellow {
+    background-color: #FFD62A;
+    width: 400px;
+  }
+  
+  .purple {
+    background-color: #B02AFF;
+  } 
+  

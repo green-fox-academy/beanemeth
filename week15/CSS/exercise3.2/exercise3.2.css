@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .container {
+    width: 100%;
+    height: 300px;
+    background-color: #FFD62A;
+    display: flex;
+    justify-content:space-between;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .item {
+    width: 100px;
+    height: 100px;
+    background-color: #B02AFF;
+    align-self: center;
+    list-style-type: none;
+  }

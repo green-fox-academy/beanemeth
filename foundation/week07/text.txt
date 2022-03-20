@@ -1,0 +1,7 @@
+Create a function that is able to read a file
+it shall receive the file name as parameter
+it shall display a friendly error message when cannot read
+the file
+It shall return with the average length of the
+three longest words in the file
+Let us suppose that there are no írásjelek in the file

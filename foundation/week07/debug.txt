@@ -1,0 +1,3 @@
+I am determined to learn how to debug.
+Debugging is very handy when I need to find the source of the bug during development.
+I cannot deny the importance of this any longer.

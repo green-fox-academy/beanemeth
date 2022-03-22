@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>First server</title>
+    <link rel="stylesheet" href="/assets/style.css"/>
+</head>
+<body>
+    <h1>Todos</h1>
+    <ul>
+        <% todos.forEach(function(todoItem) { %>
+          <li><%= todoItem %></li>
+        <% }); %>
+    </ul>
+</body>
+</html>

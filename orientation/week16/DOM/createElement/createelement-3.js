@@ -20,7 +20,7 @@ const kids = [
 
 const main = document.querySelector('main');
 
-kids.forEach((pet) => {
+kids.forEach((kid) => {
     const article = document.createElement('article');
     const header3 = document.createElement('h3');
     const paragraph = document.createElement('p');
@@ -28,24 +28,24 @@ kids.forEach((pet) => {
     article.appendChild(header3);
     article.appendChild(paragraph);
 
-    header3.innerText = pet.owner;
-    paragraph.innerText = pet.petName;
+    header3.innerText = kid.owner;
+    paragraph.innerText = kid.petName;
 
     main.appendChild(article);
 });
-const mainList = document.querySelector('main');
 
 
 
 
+//Solution 2:
     // for (let i = 0; i < kids.length; i ++) {
-    //   const newArticle = document.createElement('article');
-    //   const newH3 = document.createElement('h3');
-    //   const newP = document.createElement('p');
-    //   newH3.textContent = kids[i].owner;
-    //   newP.textContent = kids[i].petName;
+    //   const article = document.createElement('article');
+    //   const header3 = document.createElement('h3');
+    //   const paragraph = document.createElement('p');
+    //   header3.textContent = kids[i].owner;
+    //   paragraph.textContent = kids[i].petName;
 
-    //   newArticle.appendChild(newH3);
-    //   newArticle.appendChild(newP);
-    //   mainList.appendChild(newArticle);
+    //   article.appendChild(header3);
+    //   article.appendChild(paragraph);
+    //   main.appendChild(article);
     // }

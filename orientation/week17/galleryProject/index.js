@@ -1,21 +1,26 @@
 window.addEventListener("DOMContentLoaded", () => {
+    const thumbnails = document.querySelector(".thumbnails");
+    const previousButton = document.querySelector(".previous-button");
+    const nextButton = document.querySelector(".next-button");
+      
     const chosenImage = document.querySelector(".chosen-image"); /*big image*/
     chosenImage.style.backgroundImage = `url(${images[0].file})`;
 
     const contentDiv = document.createElement("div");
-    contentDiv.setAttribute("class", "content-div");
+    
 
     const imageTilte = document.createElement("h3");
-    imageTilte.textContent = images[0].title;
 
     const imageText = document.createElement("p");
     imageText.textContent = images[0].description;
+    imageTilte.textContent = images[0].title;
 
+    contentDiv.setAttribute("class", "content-div");
     contentDiv.appendChild(imageTilte);
     contentDiv.appendChild(imageText);
     chosenImage.appendChild(contentDiv);
 
-    const thumbnails = document.querySelector(".thumbnails");
+    
     let counter = 0;
     for (let i = 0; i < images.length; i++) {
         const thumbnailDiv = document.createElement("div");
@@ -43,8 +48,6 @@ window.addEventListener("DOMContentLoaded", () => {
         });
       });
 
-      const previousButton = document.querySelector(".previous-button");
-      const nextButton = document.querySelector(".next-button");
       
 
       nextButton.addEventListener("click", () => {

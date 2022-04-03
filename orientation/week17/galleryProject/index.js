@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", () => {
     chosenImage.appendChild(contentDiv);
 
     const thumbnails = document.querySelector(".thumbnails");
-
+    let counter = 0;
     for (let i = 0; i < images.length; i++) {
         const thumbnailDiv = document.createElement("div");
         thumbnailDiv.style.backgroundImage = `url(${images[i].file})`;
@@ -26,26 +26,26 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".thumbnail-image")[0].classList.add("selected");
 
-    document.querySelectorAll(".thumbnail-image").forEach((div, i) => {
+    document.querySelectorAll(".thumbnail-image").forEach((div, index) => {
         div.addEventListener("click", () => {
-            chosenImage.style.backgroundImage = `url(${images[i].file})`;
-            imageTilte.textContent = images[i].title;
-            imageText.textContent = images[i].description;
-            counter = i;
+            chosenImage.style.backgroundImage = `url(${images[index].file})`;
+            imageTilte.textContent = images[index].title;
+            imageText.textContent = images[index].description;
+            counter = index;
         });
     });
 
     document.querySelectorAll(".thumbnail-image").forEach((div) => {
-        div.addEventListener("click", (e) => {
+        div.addEventListener("click", (event) => {
           const selected = document.querySelector(".selected");
           selected.classList.remove("selected");
-          e.target.classList.add("selected");
+          event.target.classList.add("selected");
         });
       });
 
       const previousButton = document.querySelector(".previous-button");
       const nextButton = document.querySelector(".next-button");
-      let counter = 0;
+      
 
       nextButton.addEventListener("click", () => {
         counter++;

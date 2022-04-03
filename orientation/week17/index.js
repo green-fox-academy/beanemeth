@@ -17,3 +17,9 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
+
+//Npm init -y
+//Npm i express nodemon
+////(ha nem lenne git ignore akkor kellene egy)
+//Nodemon folyamatosan futtatja a servert
+//npm start

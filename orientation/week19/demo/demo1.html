@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Lobster&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Beatles</title>
+    <style>
+        body,
+        html {
+            display: flex;
+            background-color: seashell;
+            margin: 0;
+            padding: 0;
+            justify-content: center; 
+        }
+
+        .display {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: space-around; /*this is needed in order to center the members' name */
+            align-items: center; 
+            margin-bottom: 20px;
+            height: 300px;
+            width: 300px;
+            background-color: seashell;
+            font-family: 'Jura';
+            font-size: 27pt;
+            color: seashell;
+        }
+
+        .title {
+            display: flex;
+            justify-content: center;
+            font-family: 'Lobster', cursive;
+            font-size: 30pt;
+        }
+
+        img {
+            position: fixed;
+            bottom: 0px;
+            left: 42%;
+            height: 240px;
+            width: 240px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>The Beatles band members were:</h1>
+    </div>
+    <div class="display">"</div>
+
+    <img src="./images/beatles1.jpeg" alt="Beatles">
+
+</body>
+<script>
+
+    const display = document.querySelector('.display');
+
+    let numOfRepetitions = 0;
+    const intervalObj = setInterval(
+        () => {
+            numOfRepetitions++;
+
+            if (numOfRepetitions === 1) {
+                display.innerText = 'John Lennon';
+                display.style.backgroundColor = "CadetBlue";
+                display.style.color = "black";
+            } if (numOfRepetitions === 2) {
+                display.innerText = 'Paul McCartney';
+                display.style.backgroundColor = "Sienna";
+                display.style.color = "white";
+            } if (numOfRepetitions === 3) {
+                display.innerText = 'George Harrison';
+                display.style.backgroundColor = "DarkOliveGreen";
+                display.style.color = "white";
+            } if (numOfRepetitions === 4) {
+                display.innerText = 'Ringo Starr';
+                display.style.backgroundColor = "Khaki";
+                display.style.color = "black";
+            } if (numOfRepetitions === 5) {
+                clearInterval(intervalObj);
+            }
+        },
+        1000
+    );
+</script>
+
+</html>
+
+<!-- images:
+https://www.wallpaperflare.com/the-beatles-band-music-the-beatles-illustration-music-band-wallpaper-miwol
+https://www.pngitem.com/middle/bTwhRx_the-beatles-abbey-road-drawing-silhouette-logo-beatles/ -->

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop: EventListeners</title>
+</head>
+
+<body>
+    <ul>
+        <li>apple</li>
+        <li>balloon</li>
+        <li>cat</li>
+        <li>dolphin</li>
+    </ul>
+    <button>How many items are in the list?</button>
+    <p class="result">dunno :(</p>
+
+
+    <script>
+        //   On the click of the button,
+        //   Count the items in the list
+        //   And display the result in the result element.
+
+        const button = document.querySelector('button');
+        const list = document.querySelector('ul');
+        const result = document.querySelector('.result'); //ez itt class
+        button.addEventListener('click', () => {
+            result.textContent = list.childElementCount.toString();
+        });
+
+        list.childElementCount;
+//https://developer.mozilla.org/en-US/docs/Web/API/Element/childElementCount
+// OR: const listLength = document.querySelectorAll('ul li').length;
+//     result.textContent = ` ${listLength}`;
+//BUTTON.addeventlistener('click', function)
+//FONTOS HOGY ne legyen () a function utan. nem mindegy h egy fuggveny vagy egy szam
+//igy egy kod megy at ha nincs zarojel
+
+//let counter = 0;
+// const countListElements = () => {
+//   for (let i = 0; i < list.length; i++) {
+//     counter++;
+//   }
+//   result.textContent = counter;
+// };
+// button.addEventListener('click', countListElements);
+//itt a vegen volt fontos h ne legyen (), igy egy kod megy at ha nincs zarojel
+    </script>
+
+</body>
+
+</html>

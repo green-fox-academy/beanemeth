@@ -11,6 +11,14 @@ const mapWith = (array, callback) => {
 
   return output;
 }
+// const mapWith = (array, callback) => {
+//     let output = [];
+//     for (let i = 0; i < array.length; i++) {
+//         const element = callback(array[i]);
+//         output.push(element);
+//     }
+//     return output;
+// }
 
 const addOne = (number) => {
   return number + 1;
@@ -39,3 +47,14 @@ function removeSecondChar(word) {
 console.log(mapWith(words, removeSecondChar));
 
 // expected result: ['mp','rdc', 'fle']
+
+const removeSecondLetter = (word) => {
+    let removedSecondLetter = '';
+    let characters = word.split('');
+    for (let i = 0; i < characters.length; i++) {
+        if (i % 2 !== 1) {
+            removedSecondLetter += characters[i];
+        }
+    }
+    return removedSecondLetter;
+}

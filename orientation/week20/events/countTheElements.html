@@ -23,13 +23,14 @@
         //   And display the result in the result element.
 
         const button = document.querySelector('button');
-        const list = document.querySelector('ul');
-        const result = document.querySelector('.result'); //ez itt class
+   
         button.addEventListener('click', () => {
+            const list = document.querySelector('ul');
+            const result = document.querySelector('.result'); //ez itt class
             result.textContent = list.childElementCount.toString();
         });
 
-        list.childElementCount;
+
 //https://developer.mozilla.org/en-US/docs/Web/API/Element/childElementCount
 // OR: const listLength = document.querySelectorAll('ul li').length;
 //     result.textContent = ` ${listLength}`;

@@ -1,13 +1,13 @@
 window.addEventListener('DOMContentLoaded', () => {
-const button = document.querySelector('button');
-const textContainer = document.querySelector('.text-container');
+    const button = document.querySelector('button');
+    const textContainer = document.querySelector('.text-container');
 
-button.addEventListener('click', () => {
-  const text = '2 seconds ellapsed';
-  setTimeout(() => {
-    textContainer.textContent = text;
-  }, 2000);
-});
+    button.addEventListener('click', () => {
+        const text = '2 seconds ellapsed';
+        setTimeout(() => {
+            textContainer.textContent = text;
+        }, 2000);
+    });
 });
 
 // Delayed Click

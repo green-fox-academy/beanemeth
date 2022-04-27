@@ -23,7 +23,7 @@
         const div = document.querySelector('div');
 
         button.addEventListener('click', () => {
-        div.dispatchEvent(new MouseEvent('click'));
+        div.dispatchEvent(new MouseEvent('click')); //Or event, instead of mouseevent. Requires an object, not a string
       });
 
 

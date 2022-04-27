@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Disable</title>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form id="FormForAll" action="">
+        <!-- You should add a question like this: What is your favourite pet? -->
+        <p>What is your favourite pet?</p>
+        <!-- You should have 3 radio buttons: -->
+        <!-- Radio buttons should be grouped, so it should be only possible to select one at a time -->
+        <!-- choose the same name for all! -->
+        <input type="radio" name="favouritePet" id="dog">
+        <label for="dog">Dog</label><br>
+        <input type="radio" name="favouritePet" id="cat">
+        <label for="cat">Cat</label><br>
+        <input type="radio" name="favouritePet" id="fish">
+        <label for="fish">Viktor the goldfish</label><br>
+
+        <!-- You should add 2 radio buttons for Do you want to sign up for cat facts? -->
+        <p>Do you want to sign up for cat facts?</p>
+        <input type="radio" name="signUp" id="yes">
+        <label for="yes">Yes</label><br>
+        <input type="radio" name="signUp" id="no">
+        <label for="no">No</label><br>
+        <br>
+        <!-- Create two buttons, both should be disabled by default
+        I love cats
+        Sign up -->
+        <button id="loveCatsButton" disabled>I love cats</button><br>
+        <button id="signUpButton" class="signUpButton" disabled>Sign up</button>
+    </form>
+    <script src="buttonDisable.js"></script>
+</body>
+</html>
+
+<!-- Button Disable
+Form elements
+You should add a question like this: What is your favourite pet?
+You should have 3 radio buttons:
+Dog
+Cat
+Viktor the goldfish
+You should add 2 radio buttons for Do you want to sign up for cat facts?
+Yes
+No
+Create two buttons, both should be disabled by default
+I love cats
+Sign up
+Assignment
+Radio buttons should be grouped, so it should be only possible to select one at a time
+If you choose Dog or Cat, it should enable the sign up button
+If you choose Yes for cat facts, it should enable the I love cats button
+Clicking on a button should alert:
+Thank you, you've successfully signed up for cat facts
+If you pick Victor and no to cat facts it should enable the sign up button only
+Clicking this time should display: Sigh, we still added you to the cat facts list -->

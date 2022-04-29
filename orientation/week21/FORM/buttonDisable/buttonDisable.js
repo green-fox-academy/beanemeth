@@ -14,8 +14,8 @@ const signUpButton = document.getElementById('signUpButton');
 let chosenPet = '';
 
 
-favouritePet.forEach((pet) =>   
-pet.addEventListener('change', (event) => {
+favouritePet.forEach((pet) =>
+    pet.addEventListener('change', (event) => {
         chosenPet = event.target.id;
         enableSignUp(chosenPet)
     })
@@ -40,9 +40,9 @@ yesButton.addEventListener('change', (event) => {
     enableIloveCats(yesButton)
 });
 
-function enableIloveCats() {    
+function enableIloveCats() {
     loveCatsButton.disabled =
-            false;   
+        false;
 };
 
 // 3: Clicking on a button should alert:
@@ -56,9 +56,9 @@ buttons[0].addEventListener('click', () => {
 const form = document.forms[0];
 const fishBtn = document.getElementById('fish');
 form.addEventListener('click', (e) => {
-if (fishBtn.checked && noButton.checked) {
-    alert('Sigh, we still added you to the cat facts list');
-  }
+    if (fishBtn.checked && noButton.checked) {
+        alert('Sigh, we still added you to the cat facts list');
+    }
 });
 
 // VERSION NO. 2:
@@ -76,27 +76,27 @@ const yesButton = document.getElementById('yes');
 const noButton = document.getElementById('no');
 
 form.addEventListener('click', (e) => {
-  if (dogBtn.checked || catBtn.checked) {
-    signUpButton.disabled = false;
-  } else {
-    signUpButton.disabled = true;
-  }
-  if (yesButton.checked) {
-    catBtn.disabled = false;
-  } else {
-    catBtn.disabled = true;
-  }
-  if (fishBtn.checked && noButton.checked) {
-    signUpButton.disabled = false;
-  }
-  if (e.target === signUpButton) {
-    if (fishBtn.checked && noButton.checked) {
-      alert('Sigh, we still added you to the cat facts list');
+    if (dogBtn.checked || catBtn.checked) {
+        signUpButton.disabled = false;
     } else {
-      alert("Thank you, you've successfully signed up for cat facts");
+        signUpButton.disabled = true;
     }
-  }
-  if (e.target === loveCatsButton) {
-    alert("Thank you, you've successfully signed up for cat facts");
-  }
+    if (yesButton.checked) {
+        catBtn.disabled = false;
+    } else {
+        catBtn.disabled = true;
+    }
+    if (fishBtn.checked && noButton.checked) {
+        signUpButton.disabled = false;
+    }
+    if (e.target === signUpButton) {
+        if (fishBtn.checked && noButton.checked) {
+            alert('Sigh, we still added you to the cat facts list');
+        } else {
+            alert("Thank you, you've successfully signed up for cat facts");
+        }
+    }
+    if (e.target === loveCatsButton) {
+        alert("Thank you, you've successfully signed up for cat facts");
+    }
 });

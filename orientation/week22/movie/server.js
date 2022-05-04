@@ -69,9 +69,8 @@ app.get('/api/filter', (req, res) => {
 
     connection.query(query, params, (err, rows) => {
         if (err) {
-            console.error(err);
-            res.status(500).send({ message: err.sqlMessage });
-            return;
+            console.log(err.message);
+            return res.status(500).json(err);
         }
         res.send({ movies: rows });
     });

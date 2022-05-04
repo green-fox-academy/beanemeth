@@ -37,7 +37,6 @@ conn.connect((err) => {
 });
 
 
-
 app.get('/movies', (req, res) => {
     conn.query('SELECT title FROM movies', (err, title) => {
         if (err) {
@@ -58,6 +57,25 @@ app.get('/genres', (req, res) => {
     });
 });
 
+
+app.get('/api/filter', (req, res) => {
+    const query = `
+        SELECT title FROM movies JOIN genres ON movies.genres_id = genres.id
+        WHERE genre LIKE ? 
+    `;
+    const params = [
+        req.query.genre || '%'
+    ];
+
+    connection.query(query, params, (err, rows) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send({ message: err.sqlMessage });
+            return;
+        }
+        res.send({ movies: rows });
+    });
+});
 
 
 app.listen(port, () => console.log(`Server started on port: ${port}`));

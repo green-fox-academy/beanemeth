@@ -1,4 +1,5 @@
-CREATE DATABASE IF NOT EXISTS  movieSelector;
+DROP DATABASE IF EXISTS movieSelector;
+CREATE DATABASE movieSelector;
 USE movieSelector;
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";

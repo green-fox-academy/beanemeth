@@ -17,9 +17,11 @@ const mysql = require('mysql2');
 
 const app = express();
 
-const port = 3650;
+const port = 5960;
 
 app.use(express.json());
+
+app.use(express.static('public'));
 
 const conn = mysql.createConnection({
     host: 'localhost',
@@ -27,6 +29,7 @@ const conn = mysql.createConnection({
     password: 'bea',
     database: 'movieSelector',
 });
+
 
 conn.connect((err) => {
     if (err) {
@@ -37,37 +40,37 @@ conn.connect((err) => {
 });
 
 
-app.get('/movies', (req, res) => {
-    conn.query('SELECT title FROM movies', (err, title) => {
+// app.get('/api/movies', (req, res) => {
+//     conn.query('SELECT title FROM movies', (err, title) => {
+//         if (err) {
+//             console.log(err.message);
+//             return res.status(500).json(err);
+//         }
+//         return res.json(title);
+//     });
+// });
+
+app.get('/api/genres', (req, res) => {
+    conn.query('SELECT * FROM genres', (err, rows) => {
         if (err) {
             console.log(err.message);
             return res.status(500).json(err);
         }
-        return res.json(title);
+        return res.send({ genres: rows });
     });
 });
 
-app.get('/genres', (req, res) => {
-    conn.query('SELECT * FROM genres', (err, genre) => {
-        if (err) {
-            console.log(err.message);
-            return res.status(500).json(err);
-        }
-        return res.json(genre);
-    });
-});
-
-
-app.get('/api/filter', (req, res) => {
+//endpoint name matches the table's name
+app.get('/api/movies', (req, res) => {
     const query = `
         SELECT title FROM movies JOIN genres ON movies.genres_id = genres.id
         WHERE genre LIKE ? 
     `;
     const params = [
-        req.query.genre || '%'
+        req.query.genre || '%' //genre = the word we type after ?
     ];
 
-    connection.query(query, params, (err, rows) => {
+    conn.query(query, params, (err, rows) => {
         if (err) {
             console.log(err.message);
             return res.status(500).json(err);
@@ -75,6 +78,8 @@ app.get('/api/filter', (req, res) => {
         res.send({ movies: rows });
     });
 });
+
+
 
 
 app.listen(port, () => console.log(`Server started on port: ${port}`));
@@ -91,7 +96,6 @@ app.listen(port, () => console.log(`Server started on port: ${port}`));
 //then run it with the thunder icon
 // CRUD
 // - POST 
-// - GET 
 // - GET 
 // - PUT 
 // - DELETE 

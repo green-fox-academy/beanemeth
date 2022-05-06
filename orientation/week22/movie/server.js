@@ -64,7 +64,7 @@ app.get('/api/genres', (req, res) => {
 app.get('/api/movies', (req, res) => {
     const query = `
         SELECT title FROM movies JOIN genres ON movies.genres_id = genres.id
-        WHERE genre LIKE ? 
+        WHERE genres.id LIKE ? 
     `;
     const params = [
         req.query.genre || '%' //genre = the word we type after ?

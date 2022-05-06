@@ -17,10 +17,11 @@ async function getGenres() {
 
 async function getMovies(genre) {
     try {
+        let response; //itt kell  mert igy van if-en kivul
        if(genre){
-        const response = await fetch('/api/movies?genre='`${genre}`); 
+        response = await fetch(`/api/movies?genre=${genre}`); 
        }else{ 
-        const response = await fetch('/api/movies');
+        response = await fetch('/api/movies');
         console.log(response)
     }if (response.ok) {
             const dataObject =  await response.json(); 
@@ -58,13 +59,14 @@ document.addEventListener('DOMContentLoaded', async () => { // * conitunuing fro
 
     movieSelect.innerHTML = await createMovieList();
 
+    const titleElem = document.querySelector('#selected-movie');
+    
     genreSelect.onchange = async () => {
         movieSelect.innerHTML = await createMovieList(genreSelect.value); //Uncaught SyntaxError: Unexpected reserved word (at index.js:60:33)
         titleElem.textContent = '-';
     }
 
     movieSelect.onchange = () => {
-        const titleElem = document.querySelector('#selected-movie');
         titleElem.textContent = movieSelect.value || '-';
     };
 });

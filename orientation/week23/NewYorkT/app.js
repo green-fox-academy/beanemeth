@@ -15,8 +15,8 @@ const request_url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=
 // Create a permalink for each article
 
 window.onload = () => {
-    getArticles();
-};
+     getArticles();
+ };
 
 
 async function getArticles() {
@@ -28,22 +28,22 @@ async function getArticles() {
             console.log(data)
             let articleList = data.response.docs;
             for (let index = 0; index < articleList.length; index++) {
-            let headline = document.createElement('h2');
-            headline.innerText = articleList[index].headline.main;
-            body.appendChild(headline);
-            let snippet = document.createElement('h3');
-            snippet.innerText = articleList[index].snippet;
-            body.appendChild(snippet);
-            let pubDate = document.createElement('h4');
-            pubDate.innerText = articleList[index].pub_date;
-            body.appendChild(pubDate);
-            let a = document.createElement('a');
-            a.innerHTML = 'click me';
-            body.appendChild(a);
-            a.addEventListener('click', () => {
-                a.setAttribute('href', articleList[index].web_url);
-            });
-        }
+                let headline = document.createElement('h2');
+                headline.innerText = articleList[index].headline.main;
+                body.appendChild(headline);
+                let snippet = document.createElement('h3');
+                snippet.innerText = articleList[index].snippet;
+                body.appendChild(snippet);
+                let pubDate = document.createElement('h4');
+                pubDate.innerText = articleList[index].pub_date;
+                body.appendChild(pubDate);
+                let a = document.createElement('a');
+                a.innerHTML = 'click me';
+                body.appendChild(a);
+                a.addEventListener('click', () => {
+                    a.setAttribute('href', articleList[index].web_url);
+                });
+            }
         } else {
             console.error(response.statusText);
             return;

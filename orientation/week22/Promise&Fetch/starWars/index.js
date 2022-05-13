@@ -11,19 +11,20 @@
     4. Other unordered list, data.title
 */
 const searchTextBox = document.querySelector('input');
-const searchTerm = searchTextBox.value;
 const button = document.querySelector('button');
 const characters = document.querySelector('.characters');
 const movieDetails = document.querySelector('.movies');
-let movies;
+let movies; //ez fut le eloszor
 
 
-window.onload = () => {
-    getFilmTitle();
-  };
-  
+// window.onload = () => {
+//     getFilm();
+// };
+
 
 async function getPeople() {
+
+    const searchTerm = searchTextBox.value; //must be in the function
     const url = `https://swapi.dev/api/people/?search=${searchTerm}`;
 
     try {
@@ -43,12 +44,12 @@ async function getPeople() {
 
 
 
-async function getFilmTitle(filmURL) {
+async function getFilm(filmURL) {
     try {
         const response = await fetch(filmURL);
         if (response.ok) {
             const data = await response.json();
-            return data.title;
+            return data;
         } else {
             console.error(response.statusText);
             return;
@@ -59,33 +60,33 @@ async function getFilmTitle(filmURL) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', async () => { //ez fut le masodiknak
     const button = document.querySelector('button');
-    button.onclick = async function() {
+    button.onclick = async function () {
         const searchTextBox = document.querySelector('input');
-        const searchTerm = searchTextBox.value;
-        const people = await getPeople(searchTerm);
+        //const searchTerm = searchTextBox.value;
+        const people = await getPeople();
 
- 
+
         const personListUL = document.querySelector('.characters');
-        personListUL.innerHTML = '';
+        personListUL.innerHTML = ''; //igy torlodik ki az elozo kereses eredmenye
 
         people.forEach((person) => {
             const personLI = document.createElement('li');
             personLI.textContent = person.name;
             personListUL.appendChild(personLI);
 
-            personLI.onclick = function() {
-                
+            personLI.onclick = function () {
+
                 const movieListUL = document.querySelector('.movies');
                 movieListUL.innerHTML = '';
 
                 person.films.forEach(async (filmURL) => {
-                    const filmTitle = await getFilmTitle(filmURL);
-                    console.log(filmTitle);
+                    const filmObject = await getFilm(filmURL);
+                    console.log(filmObject);
                     const movieLI = document.createElement('li');
-                    movieLI.innerHTML = `${filmTitle.title}:(${filmTitle.release_date})`;
-                    
+                    movieLI.innerHTML = `${filmObject.title}:(${filmObject.release_date})`;
+
                     movieListUL.appendChild(movieLI);
                 });
             }

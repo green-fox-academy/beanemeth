@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Jura', sans-serif;
+    font-weight: 300;
+  }
+  
+  body {
+    background-color: #eeeedf;
+  }
+  
+   h2 {
+    text-transform: uppercase; /*https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform */
+    line-height: 30px; /* The line-height property specifies the height of a line.*/
+    margin-bottom: 20px; 
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: darkgreen;
+   
+  }
+
+  p {
+    font-size: 9px;
+    line-height: 18px;
+  }
+ 
+  .divforallform {
+    margin: auto; /*You can set the margin property to auto to horizontally center the element within its container. */
+    width: 350px;
+    height: 300px;
+    background-color: white;
+    margin-top: 20px;
+  }
+  
+  form {
+    padding: 45px;
+    position: relative;
+  } 
+  
+  #username, #password {
+    width: 300px;
+    height: 35px;
+    margin-bottom: 20px;
+  }
+  
+  
+  
+  .forgot-password {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+  }
+  
+  .login-btn {
+    position: absolute;
+    bottom: 0px;
+    left: 50px;
+    padding: 10px 40px 10px 40px;
+    background-color: #141414;
+    border: none;
+    border-radius: 30px;
+    color: #ffffff;
+  } 

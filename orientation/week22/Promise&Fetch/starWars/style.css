@@ -1,0 +1,48 @@
+li {
+    cursor: pointer;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Jura&family=Titillium+Web:wght@300&display=swap');
+
+
+
+:root {
+  --clr-pink: pink;
+ 
+}
+
+h2{
+    font-family: 'Indie Flower', cursive;
+    
+}
+
+.button {
+  font-family: 'Indie Flower', cursive;
+  cursor: pointer;
+  border: var(--clr-pink) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+  text-shadow: 
+  0 0 .20em pink,  /*https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow */
+  0 0 .30em  var(--clr-pink);
+  box-shadow: 
+    inset 0 0 .5em var(--clr-pink),
+          0 0 .5em var(--clr-pink);
+}
+
+aside {
+    width: 30%;
+    padding-left: 15px;
+    margin-left: 15px;
+    float: right;
+    font-style: italic;
+    background-color: lightgray;
+  }
+  main{
+    width: 30%;
+    padding-left: 15px;
+    margin-left: 15px;
+    float: left;
+    font-style: italic;
+    background-color: lightpink;
+  }

@@ -76,7 +76,9 @@ app.get('/appenda/:appendable', (req, res) => {
 //add endpoint for do until
 app.post('/dountil/:operation', (req, res) => {
   const { until } = req.body;
-  
+  if (req.params.operation !== 'factor' || req.params.operation !== 'sum') {
+    res.status(404).send("Type of operation is not valid");
+  }
   if (!until) {
     res.status(404);
     res.json({ error: 'Please provide a number!' });
@@ -98,15 +100,20 @@ app.post('/dountil/:operation', (req, res) => {
   const sumOutput = {
     result: sum,
   };
+console.log(req.params.operation)
 
   if (req.params.operation === 'factor') {
     res.json(factOutput);
     res.status(201).send();
+    return;
   }
   if (req.params.operation === 'sum') {
     res.json(sumOutput);
     res.status(201).send();
+    return;
   }
+
+  
 });
 
 

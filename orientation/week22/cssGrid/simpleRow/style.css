@@ -1,0 +1,30 @@
+  body {
+    margin: 0 0 0 0;
+    background-color: FloralWhite;
+}
+  
+  .container {
+    display: grid;
+    grid-template-columns: auto 60% auto; /*grid-template-columns: 1fr 3fr 1fr;*/
+    grid-auto-rows: 300px;
+    grid-gap: 10px;
+    background-color: #B02AFF;
+    color: white;
+    font-size: 25px;
+    padding: 10px; /* igy lesz korben lila csik */
+    padding-right: 30px;  /*igy nem log le jobb oldalt */
+  }
+  
+  .side {
+    display: flex;
+    background-color:  #FFD62A;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #51D400;
+  }

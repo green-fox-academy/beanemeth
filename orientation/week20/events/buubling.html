@@ -50,9 +50,12 @@
         let backGroundY = 0;
         const buttons = document.querySelectorAll('button');
         const imageInspector = document.querySelector('.img-inspector');
+        let originalSizedPic = parseInt(window.getComputedStyle(imageInspector).backgroundSize);
+        //do not use Number if there is % or px
         //https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
         //and
         //http://html5doctor.com/html5-custom-data-attributes/
+        //https://stackoverflow.com/questions/13770879/javascript-style-property-is-empty
         buttons.forEach(element => {
             if (element.dataset.action === 'move') {
                 element.addEventListener('click', () => {
@@ -68,19 +71,20 @@
                     } if (element.dataset.direction === 'right') {
                         backGroundX -= 10;
                         imageInspector.style.backgroundPositionX = `${backGroundX}px`;
-                    } //It works up until here
-                }); /////ZOOM? absolutely no idea! change the size eg. tbc.
+                    } 
+                }); 
             } if (element.dataset.action === 'zoom') {
                 element.addEventListener('click', () => {
                     if (element.dataset.direction === 'in') {
-
+                        originalSizedPic += 20;
+                        imageInspector.style.backgroundSize = `${originalSizedPic}%`;
                     }
                     if (element.dataset.direction === 'out') {
-
+                        originalSizedPic -= 20;
+                        imageInspector.style.backgroundSize = `${originalSizedPic}%`;
                     }
                 });
             }
-
         });
 
 

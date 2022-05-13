@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<title>Create Account</title>
+<h1>Welcome!</h1>
+<form method="POST" action="/sign-up">
+  <fieldset>
+    <legend>Create Account</legend>
+    <div>
+      <label for="name-input">Full Name:</label>
+      <input
+        id="name-input"
+        type="text"
+        name="name"
+        placeholder="Kovács József"
+        pattern="^\p{L}+\s\p{L}+$"
+        required>
+      <!-- <input id="name-input" type="text"> -->
+    </div>
+    <div>
+      <label for="email-input">E-mail:</label>
+      <input
+        id="email-input"
+        type="email"
+        name="email"
+        required>
+      <!-- <input id="email-input" type="text" name="email"> -->
+    </div>
+    <div>
+      <label for="phone-input">Phone number:</label>
+      <input
+        id="phone-input"
+        type="tel"
+        name="phone"
+        pattern="^[+0][0-9\s-]{9,}$"
+        required>
+      <!-- <input id="phone-input" type="text" name="phone"> -->
+    </div>
+    <div>
+      <label for="pass-input">Password:</label>
+      <input
+        id="pass-input"
+        type="password"
+        name="password"
+        minlength="6"
+        required>
+      <!-- <input id="pass-input" type="password" name="password"> -->
+    </div>
+    <div>
+      <button id="submit-btn" type="submit">Sign Up</button>
+      <button type="reset">Clear</button>
+    </div>
+    <div id="errors"></div>
+  </fieldset>
+</form>
+<!-- <script src="index.js"></script> -->

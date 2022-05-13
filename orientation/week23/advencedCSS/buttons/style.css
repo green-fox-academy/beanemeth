@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    height: 100vh;
+    background: darkblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-row-one {
+    margin-bottom: 45px;
+    /* this is needed in order to have space between the two rows */
+}
+
+button {
+    width: 111px;
+    height: 45px;
+    margin: 10px 10px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: whitesmoke;
+    border: none;
+    /* box-shadow: 0 0 2em; */
+}
+
+/* Give the buttons different mouseover states:
+  The hover should be slightly (~10%) brighter
+  The active state should be slightly (~10%) darker
+   */
+
+
+button:hover {
+    filter: brightness(110%);
+    cursor: pointer;
+}
+
+
+button:active {
+    filter: brightness(90%);
+    cursor: pointer;
+}
+
+.blue {
+    background-color: blue;
+    box-shadow: 0px 4px rgba(20, 2, 101, 0.6);
+}
+
+.green {
+    background-color: green;
+    box-shadow: 0px 4px rgba(2, 73, 35, 0.6);
+}
+
+/* http://www.corelangs.com/css/box/shadow.html */
+
+.red {
+    background-color: red;
+    box-shadow: 0px 4px rgba(134, 1, 1, 0.6);
+  /* -moz-box-shadow: 10px -10px 5px  rgba(121, 21, 21, 0.6);
+  -webkit-box-shadow: 10px -10px 5px  rgba(218, 16, 16, 0.6);
+  -o-box-shadow: 10px -10px 5px  rgba(186, 8, 8, 0.6); */
+    /* box-shadow: 0px 4px #862b2f, 0px -2px #db604f; */
+}
+
+.lightBlue{
+    background-color: aqua;
+    box-shadow: 0px 4px rgba(3, 79, 96, 0.6);
+}
+
+.black{
+    background-color: black;
+    box-shadow: 0px 4px rgba(4, 0, 0, 0.6);
+}
+
+.white{
+    background-color: azure;
+    box-shadow: 0px 4px rgba(221, 211, 211, 0.6);
+    color: black;
+}

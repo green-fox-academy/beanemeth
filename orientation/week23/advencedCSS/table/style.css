@@ -1,0 +1,44 @@
+table {
+    border-collapse: collapse;
+    font-family: sans-serif;
+}
+
+th,
+td {
+    border: 1px solid grey;
+    padding: 10px;
+    text-align: center;
+    min-width: 150px;
+}
+
+th:nth-child(1) {
+    text-align: left;
+    background-position: 0px 5px;
+    background-repeat: no-repeat;
+    background-image: url(globe-icon.png);
+    background-size: 20px;
+    padding-left: 20px;
+    border-left: none;
+}
+
+td:last-child {
+    border-right: none;
+}
+
+tbody > tr:nth-child(1) > th:last-child {
+    border-right: none;
+}
+
+thead > tr > th:nth-child(1) {
+    background: none;
+    border-top: none;
+    border-left: none;
+}
+
+thead th:nth-child(2) {
+    background-color: aqua;
+}
+
+thead th:nth-child(3) {
+    background-color: antiquewhite;
+}

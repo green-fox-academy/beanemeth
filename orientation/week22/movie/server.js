@@ -80,9 +80,13 @@ app.get('/api/movies', (req, res) => {
 });
 
 
+module.exports = {app, conn}; //!!!!!!!!!!!!!!!!!
 
 
-app.listen(port, () => console.log(`Server started on port: ${port}`));
+if (process.env.NODE_ENV != 'test') {
+    app.listen(port, () => console.log(`Server started on port: ${port}`));
+} ///this is needed for testing only!!!!!
+
 //Npm init -y
 //Npm i express nodemon
 ////(ha nem lenne git ignore akkor kellene egy)

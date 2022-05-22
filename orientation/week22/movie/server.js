@@ -17,7 +17,7 @@ const mysql = require('mysql2');
 
 const app = express();
 
-const port = 5960;
+const port = 5760;
 
 app.use(express.json());
 

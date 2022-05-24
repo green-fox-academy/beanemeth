@@ -42,8 +42,8 @@ app.post('/api/users', (req, res) => {
     };
 
     // Validation
-    if (data.birth_year >= (new Date().getFullYear()-18)) {
-        res.status(400).send({ message: 'your are too young to register, go play in the sandpit'});
+    if (data.birth_year >= (new Date().getFullYear() - 18)) {
+        res.status(400).send({ message: 'your are too young to register, go play in the sandpit' });
         return;
     }
     // if (!data.profile_picture_url || !data.profile_picture_url.includes(':')) {
@@ -56,8 +56,8 @@ app.post('/api/users', (req, res) => {
     // }
     const query = 'SELECT * FROM datingApp WHERE username = ?';
     conn.query(query, [data.username], (error, result) => {
-       console.log(result);
-               if (error) {
+        console.log(result);
+        if (error) {
             res.status(500).send({ message: 'Error' });
             return;
         } if (result.length !== 0) {
@@ -67,7 +67,7 @@ app.post('/api/users', (req, res) => {
         const query2 = `
     INSERT INTO datingApp (username, nickname, birth_year, gender, target_gender, self_description, profile_picture_url )
     VALUES (?, ?, ?, ?, ?, ?, ?)`;
-        const params = [data.username, data.nickname, data.birth_year, data.gender, data.target_gender, data.self_description, data.profile_picture_url ];
+        const params = [data.username, data.nickname, data.birth_year, data.gender, data.target_gender, data.self_description, data.profile_picture_url];
 
         conn.query(query2, params, (error, result) => {
             if (error) {
@@ -75,52 +75,73 @@ app.post('/api/users', (req, res) => {
                 res.status(500).send({ message: 'DB error' });
                 return;
             }
-            res.status(201).send({message: 'Succesful registration!' });  //ha lenne id akkor azt vissza kellene kuldeni
+            res.status(201).send({ message: 'Succesful registration!' });  //ha lenne id akkor azt vissza kellene kuldeni
         });
     });
 });
 
 //GET /api/users/{username}
 app.get('/api/users/:username', (req, res) => {
-   
+
     const username = req.params.username; //req.params az a teljes object, 
-    const age = new Date().getFullYear()-Number(req.body.birth_year);
-    //console.log(age);
     
+   
+
     if (!username) {
         return res.status(404).json({
             error: 'username not found!',
         });
     }
-   
+
     const query2 = 'SELECT username, nickname, gender, target_gender, self_description, profile_picture_url FROM datingApp WHERE username = ?';
     conn.query(query2, [username], (err2, result2) => {
         if (err2) {
             console.error(err2);
             res.status(500).send({ message: err2.sqlMessage }); //server oldali hiba
             return;
-        }  if (!result2[0]) {
+        } if (!result2[0]) {
             res.status(404).send();
             return;
         }
-        res.status(200).send({age, ...result2[0]});
+        const age = new Date().getFullYear() - Number(result2[0].birth_year);
+        res.status(200).send({ age, ...result2[0] });
     });
 });
 
 // GET /profiles/{username}
 // Loads the user's Profile page.
 app.get('/profile/:username', (req, res) => {
-console.log(req.params.username);
+    console.log(req.params.username);
     // const username = req.params.username; //req.params az a teljes object, 
     // if (!username) {
     //     return res.status(404).json({ //404 hogyha nincs olyan username
     //         error: 'username not found!',
     //     });
     // }
- 
+
     res.sendFile(__dirname + '/public/profile.html');
-        });
- 
+});
+
+// GET /api/random-user
+// Returns a random user's profile.
+// Read this article to find out how to query random data from a database.
+// Returns the same JSON object that the GET /api/users/{username} endpoint does, except for the user's matches.
+// The active user's profile should be excluded.
+app.get('/api/random-user', (req, res) => {
+    
+    const query = 'SELECT * FROM datingApp ORDER BY RAND() LIMIT 1';
+
+    conn.query(query, (error, result) => {
+        console.log(error);
+        if (error) {
+            res.status(500).send({ message: 'Error' });
+            return;
+        }
+        const age = new Date().getFullYear() - Number(result[0].birth_year);
+        res.status(200).send({ age, ...result[0] });
+    });
+});
+
 
 // }); // query es params az urlbol szedi ki a dolgokat. /post/3 az ugy lenne h post/:id; 
 //putba a bodyba rakjuk az adatokat, post szamat a paramsbol kapjuk meg, id-val jeloljuk ki h melyiket akarjuk updatelni

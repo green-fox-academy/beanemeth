@@ -242,6 +242,8 @@ if (process.env.NODE_ENV != 'test') {
     app.listen(port, () => console.log(`Server started on port: ${port}`));
 } ///this is needed for testing only!!!!!
 
+// npm i express mysql2
+// npm i --save-dev nodemon
 //Npm init -y
 //Npm i express nodemon
 ////(ha nem lenne git ignore akkor kellene egy)
@@ -269,41 +271,41 @@ if (process.env.NODE_ENV != 'test') {
 //     `;
 //     const params = [id];
 
-//     conn.query(updateQuery, params, (updateErr, updateResult) => {
-//         if (updateErr) {
-//             console.error(updateErr);
-//             res.status(500).send({ message: 'DB error' });
-//             return;
-//         }
+// //     conn.query(updateQuery, params, (updateErr, updateResult) => {
+// //         if (updateErr) {
+// //             console.error(updateErr);
+// //             res.status(500).send({ message: 'DB error' });
+// //             return;
+// //         }
 
-//         if (updateResult.affectedRows === 0) {
-//             // No row has been updated
-//             res.status(404).send({ message: 'not found' });
-//             return;
-//         }
+// //         if (updateResult.affectedRows === 0) {
+// //             // No row has been updated
+// //             res.status(404).send({ message: 'not found' });
+// //             return;
+// //         }
 
-//         const selectQuery = `SELECT * FROM posts WHERE id = ?`;
+// //         const selectQuery = `SELECT * FROM posts WHERE id = ?`;
 
-//         conn.query(selectQuery, params, (selectErr, rows) => {
-//             if (selectErr) {
-//                 console.error(selectErr);
-//                 res.status(500).send({ message: 'DB error' });
-//                 return;
-//             }
+// //         conn.query(selectQuery, params, (selectErr, rows) => {
+// //             if (selectErr) {
+// //                 console.error(selectErr);
+// //                 res.status(500).send({ message: 'DB error' });
+// //                 return;
+// //             }
 
-//             if (rows.length === 0) {
-//                 // Someone has deleted the post since the update
-//                 res.status(410).send({ message: 'Gone' });
-//                 return;
-//             }
+// //             if (rows.length === 0) {
+// //                 // Someone has deleted the post since the update
+// //                 res.status(410).send({ message: 'Gone' });
+// //                 return;
+// //             }
 
-//             res.send(rows[0]);
-//         });
-//     });
-// }
+// //             res.send(rows[0]);
+// //         });
+// //     });
+// // }
 
-// app.put('/posts/:id/upvote', (req, res) => vote(req, res, '+'));
-// app.put('/posts/:id/downvote', (req, res) => vote(req, res, '-'));
+// // app.put('/posts/:id/upvote', (req, res) => vote(req, res, '+'));
+// // app.put('/posts/:id/downvote', (req, res) => vote(req, res, '-'));
 
 // app.delete('/posts/:id', (req, res) => {
 //     const id = Number(req.params.id);

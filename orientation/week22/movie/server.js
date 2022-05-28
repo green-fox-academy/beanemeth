@@ -87,7 +87,10 @@ if (process.env.NODE_ENV != 'test') {
     app.listen(port, () => console.log(`Server started on port: ${port}`));
 } ///this is needed for testing only!!!!!
 
+//npm i express mysql2
+//npm i --save-dev nodemon
 //Npm init -y
+//npm install --save-dev nodemon
 //Npm i express nodemon
 ////(ha nem lenne git ignore akkor kellene egy)
 //Nodemon folyamatosan futtatja a servert

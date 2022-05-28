@@ -84,8 +84,8 @@ app.post('/api/users', (req, res) => {
 app.get('/api/users/:username', (req, res) => {
 
     const username = req.params.username; //req.params az a teljes object, 
-    
-   
+
+
 
     if (!username) {
         return res.status(404).json({
@@ -93,7 +93,7 @@ app.get('/api/users/:username', (req, res) => {
         });
     }
 
-    const query2 = 'SELECT username, nickname, gender, target_gender, self_description, profile_picture_url FROM datingApp WHERE username = ?';
+    const query2 = 'SELECT * FROM datingApp WHERE username = ?';
     conn.query(query2, [username], (err2, result2) => {
         if (err2) {
             console.error(err2);
@@ -104,6 +104,8 @@ app.get('/api/users/:username', (req, res) => {
             return;
         }
         const age = new Date().getFullYear() - Number(result2[0].birth_year);
+        
+       
         res.status(200).send({ age, ...result2[0] });
     });
 });
@@ -111,15 +113,15 @@ app.get('/api/users/:username', (req, res) => {
 // GET /profiles/{username}
 // Loads the user's Profile page.
 app.get('/profile/:username', (req, res) => {
-    console.log(req.params.username);
-    // const username = req.params.username; //req.params az a teljes object, 
-    // if (!username) {
-    //     return res.status(404).json({ //404 hogyha nincs olyan username
-    //         error: 'username not found!',
-    //     });
-    // }
+    //console.log(req.params.username);
 
     res.sendFile(__dirname + '/public/profile.html');
+});
+
+app.get('/match/:username', (req, res) => {
+    //console.log(req.params.username);
+
+    res.sendFile(__dirname + '/public/match.html');
 });
 
 // GET /api/random-user
@@ -128,20 +130,84 @@ app.get('/profile/:username', (req, res) => {
 // Returns the same JSON object that the GET /api/users/{username} endpoint does, except for the user's matches.
 // The active user's profile should be excluded.
 app.get('/api/random-user', (req, res) => {
-    
-    const query = 'SELECT * FROM datingApp ORDER BY RAND() LIMIT 1';
+    const { username } = req.query;
+    const query = `SELECT * FROM datingApp WHERE username != ? ORDER BY RAND() LIMIT 1`;
 
-    conn.query(query, (error, result) => {
+    const params = [username || ""]; //username cannot be undefined
+    conn.query(query, params, (error, result) => {
         console.log(error);
         if (error) {
             res.status(500).send({ message: 'Error' });
             return;
         }
-        const age = new Date().getFullYear() - Number(result[0].birth_year);
+        console.log(result);
+        const age = new Date().getFullYear() - Number(result[0]?.birth_year);
         res.status(200).send({ age, ...result[0] });
     });
 });
 
+app.post('/api/likes', (req, res) => {
+    
+
+    const query1 = `SELECT * FROM likes
+    WHERE target_username = ? AND  source_username = ?` 
+    const params1 = [req.body.source_username, req.body.target_username ];
+
+    conn.query(query1, params1, (err1, rows) => {
+        if (err1) {
+            console.error(err1);
+            res.status(500).send(err1.sqlMessage);
+            return;
+        }
+
+        // if (rows.length == 0) {
+        //     res.status(400).send('no likes yet');
+        //     return;
+        // }
+
+        const query2 = `
+            INSERT INTO likes (source_username, target_username)
+            VALUES (?, ?)
+        `;
+  
+        const params2 = [req.body.source_username, req.body.target_username];
+
+        conn.query(query2, params2, (err2, result) => {
+            if (err2) {
+                console.error(err2);
+                res.status(500).send(err2.sqlMessage);
+                return;
+            }
+            const data = {
+                source_username: req.body.source_username,
+                target_username: req.body.target_username,
+               
+            };
+            res.status(201).send(data);
+        });
+        if (rows.length <= 0) {
+            return res.status(201).send({
+                "matched": false
+            });
+        } else {
+            return res.status(201).send({
+                "matched": true
+            });
+        }
+    });
+});
+
+
+
+
+app.listen(port, () => console.log(`Server started on port: ${port}`));
+
+
+
+// const { username } = req.query;
+
+// /?username=bea
+//window.location.pathname
 
 // }); // query es params az urlbol szedi ki a dolgokat. /post/3 az ugy lenne h post/:id; 
 //putba a bodyba rakjuk az adatokat, post szamat a paramsbol kapjuk meg, id-val jeloljuk ki h melyiket akarjuk updatelni
@@ -154,6 +220,13 @@ app.get('/api/random-user', (req, res) => {
 //
 
 
+//localhost:8080\greeter\?name=peti&title=student
+
+//const username = req.headers.username;
 
 
-app.listen(port, () => console.log(`Server started on port: ${port}`));
+
+//npm install --save-dev nodemon
+
+// npm i express mysql2
+// npm i --save-dev nodemon

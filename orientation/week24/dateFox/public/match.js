@@ -34,7 +34,7 @@ async function fetchMatch() {
         if (response.ok && data.matched) {
             alert("It's a match")
         }
-        target_username = await getRandomProfile();
+        target_username = await insertRandomProfileData();
 
     } catch (error) {
         console.error(error);

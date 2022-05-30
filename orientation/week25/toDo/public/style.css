@@ -1,0 +1,39 @@
+h1 {
+    font-family: 'Lato-Light', sans-serif;
+    font-size: 64px;
+    color: #2b2929;
+  }
+
+
+.todo {
+    position: relative;
+    width: 300px;
+  }
+  .todo-input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    padding: 10px 100px 10px 20px; 
+    line-height: 1;
+    box-sizing: border-box;
+    outline: none;
+  }
+  .add-button {
+    position: absolute;
+    right: 3px; 
+    top: 3px;
+    bottom: 3px;
+    border: 0;
+    background: #ed0ed7;
+    color: #ffffff;
+    outline: none;
+    margin: 0;
+    padding: 0 10px;
+    border-radius: 100px;
+    z-index: 2;
+    font-size: 26px;
+    font-family: 'Lato-Regular', sans-serif;
+  }
+
+ 
+  

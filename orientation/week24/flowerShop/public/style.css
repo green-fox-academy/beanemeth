@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Jura&family=Titillium+Web:wght@300&display=swap');
+
+:root {
+  --clr-pink: rgb(235, 94, 219);
+  --clr-bg: rgb(246, 207, 247);
+  --font-size: 15px;
+}
+
+*, 
+*::after,
+*::before {
+  box-sizing: border-box; /*border-box tells the browser to account for any border and padding in the values you specify for an element's width and height. If you set an element's width to 100 pixels, that 100 pixels will include any border or padding you added, and the content box will shrink to absorb that extra width. */
+}
+
+body {
+ min-height: 100vh; /* vh stands for viewport heigh */
+  display: grid;
+  place-items: center;
+  background: var(--clr-bg);
+  color: var(--clr-pink);
+  font-family: 'Indie Flower', cursive;
+  overflow: hidden;
+}
+
+.button {
+  font-family: 'Indie Flower', cursive;
+  /* margin-top: -150px; */
+  font-size: var(--font-size);
+  /* display: inline-block; */
+  position: relative;
+  cursor: pointer;
+  border: var(--clr-pink) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+  text-shadow: 
+  0 0 .20em pink,  /*https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow */
+  0 0 .30em  var(--clr-pink);
+  box-shadow: 
+    inset 0 0 .5em var(--clr-pink),
+          0 0 .5em var(--clr-pink);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 140%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--clr-pink);
+  transform: 
+    perspective(0.2em)
+    rotateX(10deg) 
+    scale(1.3, 0.40);
+  filter: blur(0.5em);
+  opacity: 0.6;
+  pointer-events: none;
+  transition: opacity 100ms linear; 
+} 
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--clr-pink);
+  box-shadow: 0 0 2em var(--clr-pink);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 100ms linear;
+}
+
+.button:hover::after {
+  opacity: 1;
+}
+.button:hover, .button:focus {
+  color: pink;
+}
+.button:hover::before {
+  opacity: 0.8;
+}

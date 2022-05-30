@@ -36,7 +36,8 @@ async function addMovie() {
                 'Content-Type': 'application/json',
             },
         });
-
+        const data = await response.json();
+       // const joke = data.joke;
         // There might not be any useful data in the response body. In this
         // case we don't need to wait for it to download.
         if (!response.ok) {

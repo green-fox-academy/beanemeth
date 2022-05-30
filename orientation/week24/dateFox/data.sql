@@ -27,4 +27,6 @@ CREATE TABLE likes (
     FOREIGN KEY (source_username) REFERENCES datingApp(username),
     FOREIGN KEY (target_username) REFERENCES datingApp(username)
 );
+
+
   

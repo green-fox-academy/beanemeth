@@ -118,8 +118,8 @@ app.get('/profile/:username', (req, res) => {
     res.sendFile(__dirname + '/public/profile.html');
 });
 
+
 app.get('/match/:username', (req, res) => {
-    //console.log(req.params.username);
 
     res.sendFile(__dirname + '/public/match.html');
 });

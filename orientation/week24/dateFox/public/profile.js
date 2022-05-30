@@ -34,7 +34,6 @@ async function insertProfileData(username) {
             body.appendChild(image);
             body.append(p);
 
-
         }
         else {
             window.location.assign(`/public/error.html`);

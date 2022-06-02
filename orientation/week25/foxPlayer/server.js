@@ -219,7 +219,7 @@ app.post('/api/playlist-tracks/:playlist_id', (req, res) => {
                 res.status(500).send({ message: err1.sqlMessage });
                 return;
             }
-            res.status(204).send('Deleted playlist');
+            res.status(204).send('Deleted track');
         });
     });
 

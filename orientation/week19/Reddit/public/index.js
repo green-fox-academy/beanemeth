@@ -71,7 +71,7 @@ async function getPosts() {
                 let timeP = document.createElement('p');
                 timeP.innerHTML = `submitted on ${submittedTime}`;
             
-                let title = document.createElement('a');
+                let title = document.createElement('h4');
                 title.innerText = dataArray[index].title;
                 posts.appendChild(title);
                 //const br = createElement('br');

@@ -27,19 +27,26 @@ conn.connect((err) => {
 });
 
 // GET /todos
-// List all todo items.
+// List all todo items. //filterezze ki ami destroyed true
 
 app.get('/api/todos', (req, res) => {
-    const query = `SELECT id, text, completed FROM todos`;
-    conn.query(query, (err, rows) => {
+    const query = `SELECT id, text, completed FROM todos where completed LIKE ? AND destroyed = false`;
+
+    const params = [
+        req.query.completed || '%',
+    ];
+
+    conn.query(query, params, (err, rows) => {
         if (err) {
             console.error(err);
-            res.status(500).send(err.sqlMessage);
+            res.status(500).send({ message: err.sqlMessage });
             return;
         }
-        res.send(rows);
+        res.send(rows); //amig ugy volt h {todos: rows} addig front enden benaztam vele mert igy meg belekerult egy objectbe
     });
 });
+
+
 
 // GET /todos/:id
 // Get a single todo item.
@@ -100,7 +107,7 @@ app.post('/api/todos', (req, res) => {
         res.status(201).send({
             id: result.insertId,
             ...data
-        }); //itt nem adja vissza a completedet vlmiert, kell meg egy query?
+        });
     });
 });
 
@@ -108,93 +115,108 @@ app.post('/api/todos', (req, res) => {
 // Update a todo item.
 
 
+
+
+
 app.put('/api/todos/:id', (req, res) => {
+
+    const query1 = 'SELECT * FROM todos WHERE id = ?';
     const id = parseInt(req.params.id);
-    if (isNaN(id)) {
-        res.status(400).send({ message: 'invalid ID' });
-        return;
-    }
+    const params1 = [id];
 
-    const updateQuery = `
-UPDATE todos
-SET text = ?, completed = ? WHERE id = ?
-`;
-    const params = [req.body.text, req.body.completed, id]; //itt ugyanaz legyen a sorrend mint a queryben!!!!!!!!!!
-
-    conn.query(updateQuery, params, (updateErr, updateResult) => {
-        if (updateErr) {
-            console.error(updateErr);
-            res.status(500).send({ message: 'DB error' });
+    conn.query(query1, params1, (err1, rows) => {
+        if (rows.length === 0) {
+            res.status(404).send('Not found');
             return;
         }
 
-        if (updateResult.affectedRows === 0) {
-            // No row has been updated
-            res.status(404).send({ message: 'not found' });
-            return;
-        }
+     const query2 = 'UPDATE todos SET text = ?, completed = ? WHERE id = ?';
+        const params2 = [ 
+            req.body.text || rows[0].text,
+            req.body.completed === undefined ? rows[0].completed : req.body.completed, //undefined-e ha igen akkor tepsi, ha nem akkor req compl
+            req.params.id,
+        ];
 
-        const selectQuery = `SELECT id, text, completed FROM todos
-    WHERE id = ?`;
+        
+         //itt ugyanaz legyen a sorrend mint a queryben!!!!!!!!!!
 
-        conn.query(selectQuery, id, (selectErr, rows) => {
-            if (selectErr) {
-                console.error(selectErr);
+        conn.query(query2, params2, (updateErr, updateResult) => {
+            if (updateErr) {
+                console.error(updateErr);
                 res.status(500).send({ message: 'DB error' });
                 return;
             }
 
-            res.send(rows[0]); //me nem latszodik?
+            if (updateResult.affectedRows === 0) {
+                // No row has been updated
+                res.status(404).send({ message: 'not found' });
+                return;
+            }
+
+            const selectQuery = `SELECT id, text, completed FROM todos
+            WHERE id = ?`;
+
+            conn.query(selectQuery, id, (selectErr, rows) => {
+                if (selectErr) {
+                    console.error(selectErr);
+                    res.status(500).send({ message: 'DB error' });
+                    return;
+                }
+
+                res.send(rows[0]); //me nem latszodik?
+            });
         });
     });
 });
 
-// DELETE /todos/:id
-// Delete a todo item.
+    // DELETE /todos/:id
+    // Delete a todo item. //completed
 
-app.delete('/api/todos/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    if (isNaN(id)) {
-        res.status(400).send({ message: 'invalid ID' });
-        return;
-    }
+    app.delete('/api/todos/:id', (req, res) => {
+        const id = parseInt(req.params.id);
+        if (isNaN(id)) {
+            res.status(400).send({ message: 'invalid ID' });
+            return;
+        }
 
-    const updateQuery = `UPDATE todos
-    SET completed = ?, destroyed= ? WHERE id = ?
+        const updateQuery = `UPDATE todos
+    SET  destroyed= ? WHERE id = ?
     `;
-    const params = [req.body.completed, req.body.destroyed, id]; 
+        const params = [req.body.destroyed, id];
 
-    conn.query(updateQuery, params, (updateErr, updateResult) => {
-        if (updateErr) {
-            console.error(updateErr);
-            res.status(500).send({ message: 'DB error' });
-            return;
-        }
-
-        if (updateResult.affectedRows === 0) {
-            // No row has been updated
-            res.status(404).send({ message: 'not found' });
-            return;
-        }
-
-        const selectQuery = `SELECT * FROM todos
-    WHERE id = ?`;
-
-        conn.query(selectQuery, id, (selectErr, rows) => {
-            if (selectErr) {
-                console.error(selectErr);
+        conn.query(updateQuery, params, (updateErr, updateResult) => {
+            if (updateErr) {
+                console.error(updateErr);
                 res.status(500).send({ message: 'DB error' });
                 return;
             }
 
-            res.send(rows[0]); //me nem latszodik?
+            if (updateResult.affectedRows === 0) {
+                // No row has been updated
+                res.status(404).send({ message: 'not found' });
+                return;
+            }
+
+            const selectQuery = `SELECT * FROM todos
+    WHERE id = ?`;
+
+            conn.query(selectQuery, id, (selectErr, rows) => {
+                if (selectErr) {
+                    console.error(selectErr);
+                    res.status(500).send({ message: 'DB error' });
+                    return;
+                }
+
+                res.send(rows[0]); //me nem latszodik?
+            });
         });
     });
-});
 
 
 
-app.listen(port, () => console.log(`Server started on port: ${port}`));
+
+
+    app.listen(port, () => console.log(`Server started on port: ${port}`));
 // npm i express mysql2
 // npm i --save-dev nodemon
 //Npm init -y

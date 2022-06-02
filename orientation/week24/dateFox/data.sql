@@ -4,7 +4,7 @@ USE datingApp;
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
-DROP TABLE IF  EXISTS datingApp;  
+DROP TABLE IF  EXISTS datingApp;  --Szerintem a datingApp kicsit zavaros táblanév. Pl. a likes is része a dating appnak, akkor azt miért nem úgy hívják?
 CREATE TABLE datingApp (
   username VARCHAR(120) UNIQUE NOT NULL,
   nickname VARCHAR(120) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE datingApp (
   target_gender ENUM ('Male', 'Female', 'Both') NOT NULL,
   self_description VARCHAR(120),
   profile_picture_url VARCHAR(120) NOT NULL,
-  UNIQUE (username),
+  UNIQUE (username), --Ha a username elsődleges kulcs, akkor a UNIQUE felesleges (de nem baj, ha ott van)
   PRIMARY KEY (username)
 );
 
